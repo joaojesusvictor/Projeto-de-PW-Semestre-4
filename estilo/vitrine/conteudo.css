@@ -1,0 +1,22 @@
+#tbConteudo {
+    width: 80%;
+    
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+
+    height: 600px;
+    
+}
+
+td {
+    
+    width: 300px;
+    height: 400px;
+    margin-left: 20px;
+
+}
+#cxaConteudo{
+
+    margin-top: 10%;
+}
