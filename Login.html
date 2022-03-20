@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Detalhes</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,20 +15,22 @@
 <body>
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
-            <a href="Home.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px"
-                height="500px"></a>
+            <a href="Home.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo"
+                    width="500px" height="500px">
+            </a>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12" style="margin: auto; padding: 10px;">
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search">
                 <a href="../Projeto-de-PW-Semestre-4/Search.html"><button class="btn btn-primary"
-                        type="button">Search</button></a>
+                        type="button">Search</button>
+                </a>
             </form>
         </div>
         <div class="navbar-dark bg-black sticky-top">
 
             <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
-                
+
                 <div class="btn-group" style="margin-left: 75%; position:absolute;">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false" style="background: local; border: none;">
@@ -37,7 +39,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="Home.html">Home</a></li>
                     </ul>
                 </div>
 
@@ -64,38 +66,67 @@
                             </ul>
                         </div>
                     </div>
+                </div>
             </nav>
-        </div>
-    </div>
+        </div><br />
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-6 col-md-4 col-sm-2" style="padding-bottom: 25px;">
-                <div class="card">
-                    <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example1.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title">Produto</h4>
-                        <p class="card-text">Descrição do produto</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+
+        <div style="width: 50%; float: left;">
+            <h3 style="text-align: center;">Já tenho cadastro!</h3><br />
+            <div class="mb-3 row">
+                <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" readonly class="form-control-plaintext" id="emailLogin" value="Digite aqui"
+                        required />
+                </div><br /><br />
+
+                <div class="mb-3 row">
+                    <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="senhaLogin" required />
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-4 col-sm-2" style="padding-bottom: 25px;">
-                <div class="card">
-                    <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example2.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title">Produto</h4>
-                        <p class="card-text">Descrição do produto</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+            <button type="button" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br />
+
+            <!-- <p style="text-align: center;"><a href="#modalLogin"><u>Esqueci minha senha</u></a></p> -->
+
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalLogin"
+                style="margin-left: 30%; color: blue;">
+                Esqueci minha senha
+            </button><br />
+        </div>
+
+        <div style="width: 50%; float: left; margin-top: 30px;">
+            <h3 style="text-align: center;">Ainda não tenho cadastro!</h3><br />
+
+            <a href="../Projeto-de-PW-Semestre-4/Register.html"><button type="button" class="btn btn-primary"
+                    style="margin-left: 40%;">Clique Aqui</button><br />
+            </a>
+        </div>
+
+        <div class="modal" id="modalLogin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Informe seu email</em></h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Digite seu email"
+                                aria-label="Digite seu email" aria-describedby="button-addon2" required>
+                            <button class="btn btn-outline-secondary" type="button" id="okModal">Ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="text-center p-3" style="background-color: rgba(11, 94, 215) ">
-        <p style="color: white;">© 2020 Copyright:</p>
+        <div class="text-center p-3" style="background-color: rgba(11, 94, 215); margin-top: 30%;">
+            <p style="color: white;">© 2020 Copyright:</p>
+        </div>
     </div>
 </body>
 
