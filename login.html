@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Detalhes</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,21 +16,23 @@
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
 
-            <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px"
+            <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo"
 
-                height="500px"></a>
+                    width="500px" height="500px">
+            </a>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12" style="margin: auto; padding: 10px;">
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search">
                 <a href="../Projeto-de-PW-Semestre-4/search.html"><button class="btn btn-primary"
-                        type="button">Search</button></a>
+                        type="button">Search</button>
+                </a>
             </form>
         </div>
         <div class="navbar-dark bg-black sticky-top">
 
             <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
-                
+
                 <div class="btn-group" style="margin-left: 75%; position:absolute;">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false" style="background: local; border: none;">
@@ -39,7 +41,9 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.html">Login</a></li>
+
+                        <li><a class="dropdown-item" href="index.html">Home</a></li>
+
                     </ul>
                 </div>
 
@@ -66,60 +70,62 @@
                             </ul>
                         </div>
                     </div>
+                </div>
             </nav>
-        </div>
-    </div>
+        </div><br />
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-6 col-md-4 col-sm-2" style="padding-bottom: 25px;">
-                <div class="card">
-                    <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example1.png" alt="Card image">
-                    <div class="card-body">
-                    <h4 class="card-title">Samsung Galaxy S20</h4>
-                    <p class="card-text">Valor: R$ 2.000,00</p>
+
+        <div style="width: 50%; float: left;">
+            <h3 style="text-align: center;">Já tenho cadastro!</h3><br />
+            <div class="mb-3 row">
+                <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
+                </div><br /><br />
+
+                    <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="senhaLogin" required />
+                    </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br />
+
+            <!-- <p style="text-align: center;"><a href="#modalLogin"><u>Esqueci minha senha</u></a></p> -->
+
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalLogin"
+                style="margin-left: 30%; color: blue;">
+                Esqueci minha senha
+            </button><br />
+        </div>
+
+        <div style="width: 50%; float: left; margin-top: 30px;">
+            <h3 style="text-align: center;">Ainda não tenho cadastro!</h3><br />
+
+            <a href="../Projeto-de-PW-Semestre-4/register.html"><button type="button" class="btn btn-primary"
+                    style="margin-left: 40%;">Clique Aqui</button><br />
+            </a>
+        </div>
+
+        <div class="modal" id="modalLogin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Informe seu email</em></h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Digite seu email"
+                                aria-label="Digite seu email" aria-describedby="button-addon2" required>
+                            <button class="btn btn-outline-secondary" type="button" id="okModal">Ok</button>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6 col-md-4 col-sm-2" style="padding-bottom: 25px;">
-                <div class="card">
-                   <!--<img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example2.png" alt="Card image"> --> 
-                    <div class="card-body">
-                    <h4 class="card-title">Descrição do Produto:</h4>
-                    <p class="card-text">Tudo que você quer, para fazer tudo que ama. O Galaxy S20 FE
-                    é o smartphone para pessoas que querem tudo. Ouvimos vocês, os fãs, e agora não precisam
-                    mais ficar em dúvida sobre o que escolher. Este é o smartphone feito sob medida para fãs
-                    de todos os tipos. Desenvolvido com tudo o que vocês mais queriam em um smartphone.
-                    Então, se você é fã de fotografia, jogos ou adora deixar seu feed repleto de tudo 
-                    o que o inspira, nós reunimos a combinação definitiva de inovação S20.</p>
-
-                    <p class="card-text">O smartphone Galaxy S20 FE oferece o que você deseja, para fazer mais daquilo que você ama.
-                    Atualize sua visualização. A tela infinita Full HD+ de 6.5" tem quase nenhuma moldura
-                    ao redor das bordas planas e um orifício pequeno para a câmera.
-                    Isso significa uma tela mais envolvente que torna seus jogos,
-                    streaming e videochamadas muito mais divertidos.</p>
-
-                    <div class="form-floating">
-                        <select class="form-select" id="sel1" name="sellist">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                        </select>
-                        <label for="sel1" class="form-label">Escolha a Quantidade</label>
-                      </div>
-                    
-                     <br></br> 
-                     <a href="#" class="btn btn-primary" float="left">Adicionar ao Carrinho</a>
-                    <a href="#" class="btn btn-primary" float="right">Finalizar a Compra </a>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-
-    <div class="text-center p-3" style="background-color: rgba(11, 94, 215) ">
+    </div><br/>
+    <div class="p-3" style="background-color: rgba(11, 94, 215); text-align: center; margin-top: 20%;">
         <p style="color: white;">© 2020 Copyright:</p>
     </div>
 </body>
