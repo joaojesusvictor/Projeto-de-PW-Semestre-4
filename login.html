@@ -17,11 +17,10 @@
         <div class="p-5 text-white text-center">
 
             <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo"
-
                     width="500px" height="500px">
             </a>
         </div>
-        
+
         <div class="navbar-dark bg-black sticky-top">
 
             <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top" style="height: 80px;">
@@ -35,7 +34,7 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="index.html">Home</a></li>
+                        <li><a class="dropdown-item" href="index.html">Perfil</a></li>
 
                     </ul>
                 </div>
@@ -52,14 +51,9 @@
                         <div class="collapse navbar-collapse" id="mynavbar">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                                    <a class="nav-link" href="index.html">Inicio</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -68,60 +62,60 @@
         </div><br />
 
         <div class="row">
-        <div class="col-lg-6 col-md-8 col-sm-12">
-            <h3 style="text-align: center;">Já tenho cadastro!</h3><br />
-            <div class="mb-3 row">
-                <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
-                </div><br /><br />
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <h3 style="text-align: center;">Já tenho cadastro!</h3><br />
+                <div class="mb-3 row">
+                    <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
+                    </div><br /><br />
 
                     <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
                     <div class="col-sm-10">
                         <input type="password" class="form-control" id="senhaLogin" required />
                     </div>
+                </div>
+
+                <button type="button" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br /><br />
+
+                <!-- <p style="text-align: center;"><a href="#modalLogin"><u>Esqueci minha senha</u></a></p> -->
+
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalLogin"
+                    style="margin-left: 30%; color: blue;">
+                    Esqueci minha senha
+                </button><br />
             </div>
 
-            <button type="button" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br /><br />
+            <div class="col-lg-6 col-md-3 col-sm-12" style="text-align: center;">
+                <h3 style="text-align: center;">Ainda não tenho cadastro!</h3><br />
 
-            <!-- <p style="text-align: center;"><a href="#modalLogin"><u>Esqueci minha senha</u></a></p> -->
+                <a href="../Projeto-de-PW-Semestre-4/register.html"><button type="button" class="btn btn-primary">Clique
+                        Aqui</button><br />
+                </a>
+            </div>
 
-            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalLogin"
-                style="margin-left: 30%; color: blue;">
-                Esqueci minha senha
-            </button><br />
-        </div>
-
-        <div class="col-lg-6 col-md-3 col-sm-12" style="margin-top: 30px;">
-            <h3 style="text-align: center;">Ainda não tenho cadastro!</h3><br />
-
-            <a href="../Projeto-de-PW-Semestre-4/register.html"><button type="button" class="btn btn-primary"
-                    style="margin-left: 40%;">Clique Aqui</button><br />
-            </a>
-        </div>
-
-        <div class="modal" id="modalLogin">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Informe seu email</em></h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Digite seu email"
-                                aria-label="Digite seu email" aria-describedby="button-addon2" required>
-                            <button class="btn btn-outline-secondary" type="button" id="okModal">Ok</button>
+            <div class="modal" id="modalLogin">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Informe seu email</em></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Digite seu email"
+                                    aria-label="Digite seu email" aria-describedby="button-addon2" required>
+                                <button class="btn btn-outline-secondary" type="button" id="okModal">Ok</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div><br/><br/>
+    </div><br /><br />
 
     <div class="text-center p-3" style="background-color: rgba(11, 94, 215) ">
-        <p style="color: white;">© 2020 Copyright:</p>
+        <p style="color: white;">© 2020 Copyright: Fatec Ipiranga</p>
     </div>
 </body>
 
