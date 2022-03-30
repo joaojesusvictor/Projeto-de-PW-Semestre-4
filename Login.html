@@ -67,7 +67,7 @@
                 <div class="mb-3 row">
                     <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
+                        <input type="text" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
                     </div><br /><br />
 
                     <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
@@ -76,22 +76,16 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br /><br />
+                <button type="button" class="btn btn-primary" style="margin-left: 80%;" onclick="validarEmail()">Entrar</button><br /><br />
 
-                <!-- <p style="text-align: center;"><a href="#modalLogin"><u>Esqueci minha senha</u></a></p> -->
+                <p style="text-align: center; color: blue; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#modalLogin"><u>Esqueci minha senha</u></a></p>
 
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalLogin"
-                    style="margin-left: 30%; color: blue;">
-                    Esqueci minha senha
-                </button><br />
             </div>
 
             <div class="col-lg-6 col-md-3 col-sm-12" style="margin-top: 30px;">
                 <h3 style="text-align: center;">Ainda não tenho cadastro!</h3><br />
 
-                <a href="../Projeto-de-PW-Semestre-4/Register.html"><button type="button" class="btn btn-primary"
-                        style="margin-left: 40%;">Clique Aqui</button><br />
-                </a>
+                <button type="button" class="btn btn-primary" style="margin-left: 40%;" onclick="mudarTela()">Clique Aqui</button><br />
             </div>
 
             <div class="modal" id="modalLogin">
@@ -103,9 +97,9 @@
                         </div>
                         <div class="modal-body">
                             <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Digite seu email"
-                                    aria-label="Digite seu email" aria-describedby="button-addon2" required>
-                                <button class="btn btn-outline-secondary" type="button" id="okModal">Ok</button>
+                                <input type="text" class="form-control" placeholder="Digite seu email"
+                                    aria-label="Digite seu email" aria-describedby="button-addon2" id="email" required>
+                                <button class="btn btn-outline-secondary" type="button" id="okModal" onclick="validarEmail()">Ok</button>
                             </div>
                         </div>
                     </div>
@@ -122,3 +116,27 @@
 </body>
 
 </html>
+
+<script lang="javascript">
+
+    function validarEmail(){
+        if(email.value.length < 6  || email.value.indexOf("@") <= 0 || email.value.lastIndexOf(".") <= email.value.indexOf("@")){
+                alert("Email Invalido !!!");
+                email.focus();
+                email.value="";
+                frm1.reset()
+        } 
+
+        if(emailLogin.value.length < 6  || emailLogin.value.indexOf("@") <= 0 || emailLogin.value.lastIndexOf(".") <= emailLogin.value.indexOf("@")){
+            alert("Email Invalido !!!");
+            emailLogin.focus();
+            emailLogin.value="";
+            frm1.reset()
+        } 
+    }
+
+    function mudarTela(){
+        window.location.assign("../Projeto-de-PW-Semestre-4/Register.html");
+    }
+
+</script>
