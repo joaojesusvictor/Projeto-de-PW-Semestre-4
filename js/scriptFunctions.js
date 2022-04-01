@@ -85,26 +85,45 @@ function validarCpf(strCPF){
     var Resto;
     Soma = 0;
 
-    var cpf = strCPF.replaceAll(".", "");
-    var cpfAlterado = cpf.replaceAll("-","");
-
-    if (cpfAlterado.length != 11) alert("O CPF deve ter 11 digitos !!!");
-
-    if (cpfAlterado == "00000000000") alert("Cpf Invalido !!!");
-
-    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
+    if(strCPF.length == 0) {
+        alert("Informe o Cpf !!!")
+    }
+    else{
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(cpfAlterado.substring(9, 10)) ) alert("Cpf Invalido !!!");
+        var cpf = strCPF.replaceAll(".", "");
+        var cpfAlterado = cpf.replaceAll("-","");
 
-    Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (12 - i);
-    Resto = (Soma * 10) % 11;
+        if (cpfAlterado.length != 11) {
+            alert("O CPF deve ter 11 digitos !!!");
+        }
+        else {
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(cpfAlterado.substring(10, 11) ) ) alert("Cpf Invalido !!!");
-    return true;
+            if (cpfAlterado == "00000000000") {
+                alert("Cpf Invalido !!!");
+            }
+            else {
+
+                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (11 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(cpfAlterado.substring(9, 10)) ) {
+                    alert("Cpf Invalido !!!");
+                }
+                else {
+                    
+                    Soma = 0;
+                    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (12 - i);
+                    Resto = (Soma * 10) % 11;
+
+                    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                    if (Resto != parseInt(cpfAlterado.substring(10, 11) ) ) alert("Cpf Invalido !!!");
+                    return true;
+                }
+            }
+        }
+    }
 }
 
 function esqueciSenha(){
