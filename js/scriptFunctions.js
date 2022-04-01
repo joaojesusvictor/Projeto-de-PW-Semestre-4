@@ -84,8 +84,7 @@ function validarCpf(strCPF){
     var Soma;
     var Resto;
     Soma = 0;
-
-    Resto = (Soma * 10) % 11;
+    
     if(strCPF.length == 0) {
         alert("Informe o Cpf !!!")
     }
