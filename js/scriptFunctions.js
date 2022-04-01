@@ -1,11 +1,13 @@
 function salvarCad() {
     alert("Cadastrado com sucesso!");
     window.location.replace("Login.html");
+    return false;
 }
 
 function Finalizar() {
     alert("Compra realizada com Sucesso!");
     window.location.replace("Details.html");
+    return false;
 }
 
 function Pesquisar() {
@@ -50,26 +52,34 @@ function Pesquisar() {
 
 
     ) {
-        alert("Digite apenas letras");
+        alert("Digite apenas letras e numeros");
         pesquisarProduto.value = "";
-        pesquisarProduto.focus;
+        pesquisarProduto.focus();
         return false;
     }
     else {
-
-
-        window.location.replace("Search.html");
-        produtoPesquisado.value == pesquisarProduto.value;
-        return false;
+         window.location.replace("Search.html");
+         return false;
     }
 
 }
 
 function entrarLogin() {
     if (emailLogin.value.length < 6 || emailLogin.value.indexOf("@") <= 0 || emailLogin.value.lastIndexOf(".") <= emailLogin.value.indexOf("@")) {
-        alert("Email Invalido !!!");
+        alert("Email Invalido !");
         emailLogin.focus();
         emailLogin.value = "";
+        return false;
+    }else if(senhaLogin.value == "" || senhaLogin.value == " "*12){
+        alert("Digite a senha !");
+        senhaLogin.focus();
+
+        return false;
+    }   
+    else{
+        alert("Usuario Logado !");
+        window.location.replace("index.html");
+        
         return false;
     }
 
@@ -174,6 +184,10 @@ function esqueciSenha() {
         alert("Email Invalido !!!");
         email.focus();
         email.value = "";
+        return false;
+    }else{
+        alert("Um email de verificação foi enviado para o endereço "+email.value );
+        window.location.replace("Login.html");
         return false;
     }
 
