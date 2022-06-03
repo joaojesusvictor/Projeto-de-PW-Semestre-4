@@ -90,9 +90,17 @@
                 <input id="telefoneCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text" >Cep</span>
-                <input id="cep" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" >Cep</span>
+                        <input id="cep" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <button type="button" class="btn btn-primary" style="float: right;" onclick="buscarCep(cep.value);">Buscar Cep</button>
+                </div>
             </div>
 
             <div class="input-group mb-3">
@@ -128,7 +136,6 @@
             <div class="form-group col-lg-12 col-md-12 col-sm-6">
                 <button type="submit" class="btn btn-primary" style="float: right; margin-left: 5px;" onclick="validarCpf(cpfCadastro.value); enviarForm();">Salvar</button>
                 <button type="button" class="btn btn-danger" style="float: right;" onclick="mudarParaLogin()">Cancelar</button>
-                <button type="button" class="btn btn-primary" style="float: right; margin-right: 5px;" onclick="buscarCep(cep.value);">Buscar Cep</button>
             </div>
 
         </form>
