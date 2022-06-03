@@ -90,9 +90,45 @@
                 <input id="telefoneCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Cep</span>
+                <input id="cep" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Endereço</span>
+                <input id="enderecoCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Número</span>
+                <input id="numeroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Complemento</span>
+                <input id="complementoEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Bairro</span>
+                <input id="bairroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Cidade</span>
+                <input id="cidadeEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Estado</span>
+                <input id="estado" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
             <div class="form-group col-lg-12 col-md-12 col-sm-6">
                 <button type="submit" class="btn btn-primary" style="float: right; margin-left: 5px;" onclick="validarCpf(cpfCadastro.value); enviarForm();">Salvar</button>
                 <button type="button" class="btn btn-danger" style="float: right;" onclick="mudarParaLogin()">Cancelar</button>
+                <button type="button" class="btn btn-primary" style="float: right; margin-right: 5px;" onclick="buscarCep(cep.value);">Buscar Cep</button>
             </div>
 
         </form>
