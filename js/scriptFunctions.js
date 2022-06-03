@@ -11,13 +11,12 @@ function Finalizar() {
 }
 
 function Pesquisar() {
-
     if (pesquisarProduto.value == "" || pesquisarProduto.value == " " * 12) {
         alert("Digite algo a ser pesquisado");
         pesquisarProduto.focus;
         return false;
-
-    } else if (
+    } 
+    else if (
         pesquisarProduto.value.indexOf("!") != -1 ||
         pesquisarProduto.value.indexOf("@") != -1 ||
         pesquisarProduto.value.indexOf("#") != -1 ||
@@ -49,8 +48,6 @@ function Pesquisar() {
         pesquisarProduto.value.indexOf("|") != -1 ||
         pesquisarProduto.value.indexOf("}") != -1 ||
         pesquisarProduto.value.indexOf("?") != -1
-
-
     ) {
         alert("Digite apenas letras e numeros");
         pesquisarProduto.value = "";
@@ -61,7 +58,6 @@ function Pesquisar() {
          window.location.replace("Search.html");
          return false;
     }
-
 }
 
 function entrarLogin() {
@@ -73,13 +69,11 @@ function entrarLogin() {
     }else if(senhaLogin.value == "" || senhaLogin.value == " "*12){
         alert("Digite a senha !");
         senhaLogin.focus();
-
         return false;
     }   
     else{
         alert("Usuario Logado !");
         window.location.replace("index.html");
-        
         return false;
     }
 
@@ -95,16 +89,15 @@ function mudarParaLogin() {
 }
 
 function enviarForm() {
-
     if (nomeCadastro.value.length <= 3) {
-        alert("Digite seu nome completo !");
+        alert("Digite seu nome completo!");
         nomeCadastro.value = "";
         nomeCadastro.focus();
         return false;
     }
 
     if (emailCadastro.value.length < 6 || emailCadastro.value.indexOf("@") <= 0 || emailCadastro.value.lastIndexOf(".") <= emailCadastro.value.indexOf("@")) {
-        alert("Email Invalido !!!");
+        alert("Email Invalido!");
         emailCadastro.focus();
         emailCadastro.value = "";
         return false;
@@ -125,12 +118,25 @@ function enviarForm() {
     }
 
     if (telefoneCadastro.value == "" || isNaN(telefoneCadastro.value)) {
-        alert("Informe somente numeros para o telefone!!!");
+        alert("Informe somente numeros para o telefone!");
         telefoneCadastro.focus();
         telefoneCadastro.value = "";
         return false;
     }
 
+    if (cep.value == "") {
+        alert("Informe somente numeros para o cep!");
+        cep.focus();
+        cep.value = "";
+        return false;
+    }
+
+    if (enderecoCadastro.value.length <= 5) {
+        alert("Digite o endereço!");
+        enderecoCadastro.value = "";
+        enderecoCadastro.focus();
+        return false;
+    }
     formCadastro.submit();
 }
 
@@ -144,14 +150,12 @@ function validarCpf(strCPF) {
     }
     else{
 
-        var cpf = strCPF.replaceAll(".", "");
-        var cpfAlterado = cpf.replaceAll("-","");
+        var cpfAlterado = strCPF.replaceAll(".", "").replaceAll("-", "");
 
         if (cpfAlterado.length != 11) {
             alert("O CPF deve ter 11 digitos !!!");
         }
         else {
-
             if (cpfAlterado == "00000000000") {
                 alert("Cpf Invalido !!!");
             }
@@ -186,10 +190,30 @@ function esqueciSenha() {
         email.value = "";
         return false;
     }else{
-        alert("Um email de verificação foi enviado para o endereço "+email.value );
+        alert("Um email de verificação foi enviado para o endereço: " + email.value );
         window.location.replace("Login.html");
         return false;
     }
 
     modalLogin.submit();
+}
+
+async function buscarCep(valorCep){
+
+    let cep = valorCep.replaceAll(".", "").replaceAll("-", "");
+
+    let url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+    fetch(url).then((resp) => resp.json()).then(function(data) {
+
+        document.getElementById("cep").value = data.cep;
+        document.getElementById("enderecoCadastro").value = data.logradouro;
+        document.getElementById("bairroEnd").value = data.bairro;
+        document.getElementById("cidadeEnd").value = data.localidade;
+        document.getElementById("estado").value = data.uf;
+
+    }).catch(function(error) { 
+        alert("Cep não encontrado!");
+        console.log(error);
+    });
 }
