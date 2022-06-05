@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/joaojesusvictor/Projeto-de-PW-Semestre-4#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
   }
 }
