@@ -15,7 +15,7 @@ function Pesquisar() {
         alert("Digite algo a ser pesquisado");
         pesquisarProduto.focus;
         return false;
-    } 
+    }
     else if (
         pesquisarProduto.value.indexOf("!") != -1 ||
         pesquisarProduto.value.indexOf("@") != -1 ||
@@ -55,8 +55,8 @@ function Pesquisar() {
         return false;
     }
     else {
-         window.location.replace("Search.html");
-         return false;
+        window.location.replace("Search.html");
+        return false;
     }
 }
 
@@ -66,12 +66,12 @@ function entrarLogin() {
         emailLogin.focus();
         emailLogin.value = "";
         return false;
-    }else if(senhaLogin.value == "" || senhaLogin.value == " "*12){
+    } else if (senhaLogin.value == "" || senhaLogin.value == " " * 12) {
         alert("Digite a senha !");
         senhaLogin.focus();
         return false;
-    }   
-    else{
+    }
+    else {
         alert("Usuario Logado !");
         window.location.replace("index.html");
         return false;
@@ -144,11 +144,11 @@ function validarCpf(strCPF) {
     var Soma;
     var Resto;
     Soma = 0;
-    
-    if(strCPF.length == 0) {
+
+    if (strCPF.length == 0) {
         alert("Informe o Cpf !!!")
     }
-    else{
+    else {
 
         var cpfAlterado = strCPF.replaceAll(".", "").replaceAll("-", "");
 
@@ -161,21 +161,21 @@ function validarCpf(strCPF) {
             }
             else {
 
-                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (11 - i);
+                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(cpfAlterado.substring(i - 1, i)) * (11 - i);
                 Resto = (Soma * 10) % 11;
 
-                if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                if (Resto != parseInt(cpfAlterado.substring(9, 10)) ) {
+                if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                if (Resto != parseInt(cpfAlterado.substring(9, 10))) {
                     alert("Cpf Invalido !!!");
                 }
                 else {
-                    
+
                     Soma = 0;
-                    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfAlterado.substring(i-1, i)) * (12 - i);
+                    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpfAlterado.substring(i - 1, i)) * (12 - i);
                     Resto = (Soma * 10) % 11;
 
-                    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-                    if (Resto != parseInt(cpfAlterado.substring(10, 11) ) ) alert("Cpf Invalido !!!");
+                    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                    if (Resto != parseInt(cpfAlterado.substring(10, 11))) alert("Cpf Invalido !!!");
                     return true;
                 }
             }
@@ -189,8 +189,8 @@ function esqueciSenha() {
         email.focus();
         email.value = "";
         return false;
-    }else{
-        alert("Um email de verificação foi enviado para o endereço: " + email.value );
+    } else {
+        alert("Um email de verificação foi enviado para o endereço: " + email.value);
         window.location.replace("Login.html");
         return false;
     }
@@ -198,22 +198,33 @@ function esqueciSenha() {
     modalLogin.submit();
 }
 
-async function buscarCep(valorCep){
+async function buscarCep(valorCep) {
 
-    let cep = valorCep.replaceAll(".", "").replaceAll("-", "");
+    let cepFormat = valorCep.replaceAll(".", "").replaceAll("-", "");
 
-    let url = "https://viacep.com.br/ws/" + cep + "/json/";
+    if (cepFormat == "" || cepFormat.length > 8) {
+        
+        alert("Cep inválido !!!");
+        cep.focus();
+        cep.value = "";
+        return false;
 
-    fetch(url).then((resp) => resp.json()).then(function(data) {
+    } else {
+        
 
-        document.getElementById("cep").value = data.cep;
-        document.getElementById("enderecoCadastro").value = data.logradouro;
-        document.getElementById("bairroEnd").value = data.bairro;
-        document.getElementById("cidadeEnd").value = data.localidade;
-        document.getElementById("estado").value = data.uf;
+        let url = "https://viacep.com.br/ws/" + cep + "/json/";
 
-    }).catch(function(error) { 
-        alert("Cep não encontrado!");
-        console.log(error);
-    });
+        fetch(url).then((resp) => resp.json()).then(function (data) {
+
+            document.getElementById("cep").value = data.cep;
+            document.getElementById("enderecoCadastro").value = data.logradouro;
+            document.getElementById("bairroEnd").value = data.bairro;
+            document.getElementById("cidadeEnd").value = data.localidade;
+            document.getElementById("estado").value = data.uf;
+
+        }).catch(function (error) {
+            alert("Cep não encontrado!");
+            console.log(error);
+        });
+    }
 }
