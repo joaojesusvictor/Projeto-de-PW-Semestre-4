@@ -1,0 +1,22 @@
+{
+  "name": "projetopw",
+  "version": "1.0.0",
+  "description": "projetodePW front-end e back-end de um site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaojesusvictor/Projeto-de-PW-Semestre-4.git"
+  },
+  "author": "ADS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaojesusvictor/Projeto-de-PW-Semestre-4/issues"
+  },
+  "homepage": "https://github.com/joaojesusvictor/Projeto-de-PW-Semestre-4#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
