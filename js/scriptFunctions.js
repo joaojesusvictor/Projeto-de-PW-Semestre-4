@@ -215,11 +215,25 @@ async function buscarCep(valorCep) {
 
         fetch(url).then((resp) => resp.json()).then(function(data) {
 
-            document.getElementById("cep").value = data.cep;
-            document.getElementById("enderecoCadastro").value = data.logradouro;
-            document.getElementById("bairroEnd").value = data.bairro;
-            document.getElementById("cidadeEnd").value = data.localidade;
-            document.getElementById("estado").value = data.uf;
+            if(!data.erro){
+
+                document.getElementById("cep").value = data.cep;
+                document.getElementById("enderecoCadastro").value = data.logradouro;
+                document.getElementById("bairroEnd").value = data.bairro;
+                document.getElementById("cidadeEnd").value = data.localidade;
+                document.getElementById("estado").value = data.uf;
+
+            }else{
+                
+                alert("Cep não encontrado!");
+
+                document.getElementById("cep").value = "";
+                document.getElementById("enderecoCadastro").value = "";
+                document.getElementById("bairroEnd").value = "";
+                document.getElementById("cidadeEnd").value = "";
+                document.getElementById("estado").value = "";
+
+            }
             
         }).catch(function(error) { 
 
