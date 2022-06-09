@@ -203,28 +203,44 @@ async function buscarCep(valorCep) {
     let cepFormat = valorCep.replaceAll(".", "").replaceAll("-", "");
 
     if (cepFormat == "" || cepFormat.length > 8) {
-        
+
         alert("Cep inválido !!!");
         cep.focus();
         cep.value = "";
         return false;
 
     } else {
-        
 
-        let url = "https://viacep.com.br/ws/" + cep + "/json/";
+        let url = "https://viacep.com.br/ws/" + cepFormat + "/json/";
 
-        fetch(url).then((resp) => resp.json()).then(function (data) {
+        fetch(url).then((resp) => resp.json()).then(function(data) {
 
-            document.getElementById("cep").value = data.cep;
-            document.getElementById("enderecoCadastro").value = data.logradouro;
-            document.getElementById("bairroEnd").value = data.bairro;
-            document.getElementById("cidadeEnd").value = data.localidade;
-            document.getElementById("estado").value = data.uf;
+            if(!data.erro){
 
-        }).catch(function (error) {
+                document.getElementById("cep").value = data.cep;
+                document.getElementById("enderecoCadastro").value = data.logradouro;
+                document.getElementById("bairroEnd").value = data.bairro;
+                document.getElementById("cidadeEnd").value = data.localidade;
+                document.getElementById("estado").value = data.uf;
+
+            }else{
+                
+                alert("Cep não encontrado!");
+
+                document.getElementById("cep").value = "";
+                document.getElementById("enderecoCadastro").value = "";
+                document.getElementById("bairroEnd").value = "";
+                document.getElementById("cidadeEnd").value = "";
+                document.getElementById("estado").value = "";
+
+            }
+            
+        }).catch(function(error) { 
+
             alert("Cep não encontrado!");
             console.log(error);
+
         });
+        
     }
 }
