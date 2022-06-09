@@ -200,20 +200,31 @@ function esqueciSenha() {
 
 async function buscarCep(valorCep){
 
-    let cep = valorCep.replaceAll(".", "").replaceAll("-", "");
+    let cepFormat = valorCep.replaceAll(".", "").replaceAll("-", "");
 
-    let url = "https://viacep.com.br/ws/" + cep + "/json/";
+    if (cepFormat == "" || cepFormat.length > 8) {
 
-    fetch(url).then((resp) => resp.json()).then(function(data) {
+        alert("Cep inválido !!!");
+        cep.focus();
+        cep.value = "";
+        return false;
 
-        document.getElementById("cep").value = data.cep;
-        document.getElementById("enderecoCadastro").value = data.logradouro;
-        document.getElementById("bairroEnd").value = data.bairro;
-        document.getElementById("cidadeEnd").value = data.localidade;
-        document.getElementById("estado").value = data.uf;
+    } else {
 
-    }).catch(function(error) { 
-        alert("Cep não encontrado!");
-        console.log(error);
-    });
+        let url = "https://viacep.com.br/ws/" + cepFormat + "/json/";
+
+        fetch(url).then((resp) => resp.json()).then(function(data) {
+
+            document.getElementById("cep").value = data.cep;
+            document.getElementById("enderecoCadastro").value = data.logradouro;
+            document.getElementById("bairroEnd").value = data.bairro;
+            document.getElementById("cidadeEnd").value = data.localidade;
+            document.getElementById("estado").value = data.uf;
+
+        }).catch(function(error) { 
+            alert("Cep não encontrado!");
+            console.log(error);
+        });
+
+    }
 }
