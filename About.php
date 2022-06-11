@@ -34,7 +34,7 @@
                 e aplicarmos algumas das tecnologias principais utilizadas no ramo como HTML5, CSS, javascript e bootstrap.
     
             </p>
-            <a href="index.html"><button type="button" class="btn btn-primary"> VOLTAR </button></a>
+            <a href="index.php"><button type="button" class="btn btn-primary"> VOLTAR </button></a>
     
           </div>
         

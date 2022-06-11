@@ -1,3 +1,11 @@
+<?php 
+    if(!isset($_SESSION)) session_start();
+    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
+        $codigo = $_SESSION['codigo'];
+        $nome = $_SESSION['nome'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,7 +73,7 @@
                 <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top" style="height: 100px;">
 
                     <div class="p-4 text-white text-center" style=" position:absolute;" >
-                        <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail"
+                        <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail"
                                 alt="Logo" width="180px" height="100px"></a>
                     </div>
 
@@ -78,8 +86,13 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="Login.html">Login</a></li>
-                            <li><a class="dropdown-item" href="Login.html">Cadastro</a></li>
+                            <!-- <li><a class="dropdown-item" href="Login.php">Login</a></li> -->
+                            <?php if(!isset($_SESSION['codigo'])){?> 
+                            <li class="nav-item"><a title="Entrar" class="nav-link js-scroll-trigger" href="Login.php"><i class="fa fa-user"></i></a></li>
+                        <?php }else{ ?>
+                            <li class="nav-item"><a title="Sair" class="nav-link js-scroll-trigger" href="Logout.php"><i class="fas fa-sign-out-alt"></i></a></li>
+                        <?php } ?>
+                            <li><a class="dropdown-item" href="Login.php">Cadastro</a></li>
                         </ul>
                     </div>
 

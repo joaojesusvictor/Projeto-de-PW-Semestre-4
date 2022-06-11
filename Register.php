@@ -1,3 +1,9 @@
+<?php 
+    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
+        header('Location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -12,10 +18,13 @@
         <script src="../Projeto-de-PW-Semestre-4/js/scriptFunctions.js"></script>
     </head>
 <body>
+
+<section>
+
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
 
-            <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px"
+            <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px"
 
                 height="500px"></a>
         </div>
@@ -33,7 +42,8 @@
                     <ul class="dropdown-menu">
 
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="Login.html">Login</a></li>
+                        <!-- <li><a class="dropdown-item" href="Login.php">Login</a></li> -->
+                        <li class="nav-item"><a title="Entrar" class="nav-link js-scroll-trigger" href="Login.php"><i class="fa fa-user"></i></a></li>
                     </ul>
                 </div>
 
@@ -49,7 +59,7 @@
                         <div class="collapse navbar-collapse" id="mynavbar">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../Projeto-de-PW-Semestre-4/index.html">Inicio</a>
+                                    <a class="nav-link" href="../Projeto-de-PW-Semestre-4/index.php">Inicio</a>
                                 </li>
                                 
                             </ul>
@@ -134,12 +144,43 @@
             </div>
 
             <div class="form-group col-lg-12 col-md-12 col-sm-6">
-                <button type="submit" class="btn btn-primary" style="float: right; margin-left: 5px;" onclick="validarCpf(cpfCadastro.value); enviarForm();">Salvar</button>
+                <button type="submit" id="enviar" name="enviar" class="btn btn-primary" style="float: right; margin-left: 5px;" onclick="validarCpf(cpfCadastro.value); enviarForm();">Salvar</button>
                 <button type="button" class="btn btn-danger" style="float: right;" onclick="mudarParaLogin()">Cancelar</button>
             </div>
 
         </form>
     </div>
+
+    <?php 
+        if(isset($_POST["enviar"])) {
+            $nome = $_POST['nomeCadastro'];
+            $email = $_POST['emailCadastro'];
+            $senha = $_POST['senhaCadastro'];
+            $confirma = $_POST['confirmaSenha'];
+            $cpf = $_POST['cpfCadastro'];
+            $telefone = $_POST['telefoneCadastro'];
+            $cep = $_POST['cep'];
+            $endereco = $_POST['enderecoCadastro'];
+            $numeroEnd = $_POST['numeroEnd'];
+            $complementoEnd = $_POST['complementoEnd'];
+            $bairroEnd = $_POST['bairroEnd'];
+            $cidadeEnd = $_POST['cidadeEnd'];
+            $estadoEnd = $_POST['estado'];
+
+            if($senha == $confirma){
+                $senha = md5($senha);
+                include_once('conn.php');
+                $sql = "INSERT INTO usuarios (nome, email, senha, cpf, telefone, cep, endereco, numero, complemento, bairro, cidade, estado) VALUES ('$nome', '$email', '$senha', '$cpf', '$telefone', '$cep', '$endereco', '$numeroEnd', '$complementoEnd', '$bairroEnd', '$cidadeEnd', '$estadoEnd')";
+                $err = mysqli_query($conn, $sql);
+                echo "<h4>Registro inserido com sucesso</h4>";
+                $conn -> close();
+            } else {
+                $_SESSION['error'] = "As senhas não batem!";
+            }
+        }
+    ?>
+
+</section>
 
     <div class="text-center p-3" style="background-color: rgba(11, 94, 215); margin-top: 25vh; ">
         <p style="color: white;">© 2022 Copyright: Todos os direitos reservados.</p>
