@@ -1,3 +1,54 @@
+<?php 
+include_once('conn.php');
+
+//Login
+
+if(!isset($_SESSION)) session_start();
+    
+if(isset($_POST['emailLogin']) && isset($_POST['senhaLogin'])){
+    $usuario = $_POST['emailLogin'];
+    $senha = md5($_POST['senhaLogin']);
+    include_once('conn.php');
+    $result_usuario = "SELECT * FROM usuarios WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
+    $resultado_usuario = mysqli_query($conn, $result_usuario);
+    $resultado = mysqli_fetch_assoc($resultado_usuario);
+    
+    if(isset($resultado)){
+        $_SESSION['codigo'] = $resultado['codigo'];
+        $_SESSION['nome'] = $resultado['nome'];
+        $_SESSION['email'] = $resultado['email'];
+        $_SESSION['mudar'] = $resultado['mudar'];
+        echo $_SESSION['email'];
+    }else{	
+        $_SESSION['error'] = "E-mail e/ou senha inválido(s)!";
+    }
+}
+
+if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
+    if($_SESSION['mudar'] == 0):
+        header('Location: index.php');
+    else:
+        header('Location: Mudar.php');
+    endif;
+}    
+
+//Esqueci minha senha
+
+    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
+        header('Location: index.php');
+    }
+
+    if(isset($_POST['senhaLogin'])){
+        $email = $_POST['email'];
+        $senha = $_POST['senhaLogin'];
+        $senha = md5($senha);
+        $sql = "UPDATE usuarios SET senha='$senha' WHERE email='$email'";
+        $err = mysqli_query($conn, $sql);
+        $_SESSION['error'] = "Enviamos sua senha por e-mail!";
+        header('Location: Login.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +68,7 @@
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
 
-            <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo"
+            <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo"
                     width="500px" height="500px">
             </a>
         </div>
@@ -52,7 +103,7 @@
                         <div class="collapse navbar-collapse" id="mynavbar">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../Projeto-de-PW-Semestre-4/index.html">Inicio</a>
+                                    <a class="nav-link" href="../Projeto-de-PW-Semestre-4/index.php">Inicio</a>
                                 </li>
 
                             </ul>
@@ -65,21 +116,28 @@
         <div class="row">
             <div class="col-lg-6 col-md-8 col-sm-12" id="logar">
                 <h3 style="text-align: center;">Já tenho cadastro!</h3><br />
-                <div class="mb-3 row">
-                    <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
-                    </div><br /><br />
 
-                    <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="senhaLogin" required />
+                <form class="col-xs-12 mb-5" action="Login.php" method="POST">
+
+                    <div class="mb-3 row">
+                        <label for="emailLogin" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="emailLogin" placeholder="Digite aqui" required />
+                        </div><br /><br />
+
+                        <label for="senhaLogin" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="senhaLogin" required />
+                        </div>
                     </div>
-                </div>
 
-                <button type="button" class="btn btn-primary" style="margin-left: 80%;" onclick="entrarLogin()">Entrar</button><br /><br />
+                    <button type="submit" class="btn btn-primary" style="margin-left: 80%;">Entrar</button><br /><br />
+                    <!-- onclick="entrarLogin()" -->
 
-                <p style="text-align: center; color: blue; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#modalLogin"><u>Esqueci minha senha</u></a></p>
+
+                    <p style="text-align: center; color: blue; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#modalLogin"><u>Esqueci minha senha</u></a></p>
+
+                </form>
 
             </div>
 
@@ -98,9 +156,51 @@
                         </div>
                         <div class="modal-body">
                             <div class="input-group mb-3">
+
+                            <form class="col-xs-12 mb-5" method="POST">
+
                                 <input type="text" class="form-control" placeholder="Digite seu email"
                                     aria-label="Digite seu email" aria-describedby="button-addon2" id="email" required>
+
+                                    <?php
+                        if(isset($_POST['email'])){
+                            $usuario = $_POST['email'];
+                            $result_usuario = "SELECT * FROM usuarios WHERE email = '$usuario' LIMIT 1";
+                            $resultado_usuario = mysqli_query($conn, $result_usuario);
+                            $resultado = mysqli_fetch_assoc($resultado_usuario);
+                            
+                            if(isset($resultado)){
+                                $n=10; 
+                                function getName($n) { 
+                                    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+                                    $randomString = ''; 
+                                
+                                    for ($i = 0; $i < $n; $i++) { 
+                                        $index = rand(0, strlen($characters) - 1); 
+                                        $randomString .= $characters[$index]; 
+                                    } 
+                                
+                                    return $randomString; 
+                                } 
+
+                                $senha = getName($n);
+                                enviarEmail($usuario, $senha);
+                                echo $senha .' ';
+                                $senha = md5($senha);
+                                $sql = "UPDATE usuarios SET senha = '$senha', mudar = 1 WHERE email = '$usuario' ";
+                                mysqli_query($conn, $sql);
+                                $conn -> close();
+                                header('Location: Login.php');
+                            }else{
+                                $_SESSION['error'] = "E-mail não cadastrado!";
+                            }
+                        }
+                    ?>
+                    
                                 <button class="btn btn-outline-secondary" type="button" id="okModal" onclick="esqueciSenha()">Ok</button>
+                                
+                            </form>
+
                             </div>
                         </div>
                     </div>
@@ -117,3 +217,26 @@
 </body>
 
 </html>
+<?php?>
+
+<?php
+function enviarEmail($usuario, $senha) {
+    $assunto = "Nova senha";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From: ProjetoPW';
+    $mensagem = "
+        <html>
+        <h2>Sua nova senha chegou</h2>
+
+        <p>Para acessar o site, faça login utilizando a nova senha informada abaixo!</p>
+
+        <strong>Senha</strong> = $senha
+
+        <p>Apos efetuar o login, informe a nova senha que deseja utilizar</p>
+
+        </html>";
+        
+        mail($usuario, $assunto, $mensagem, $headers);
+}
+?>

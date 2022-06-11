@@ -1,12 +1,12 @@
 function salvarCad() {
     alert("Cadastrado com sucesso!");
-    window.location.replace("Login.html");
+    window.location.replace("Login.php");
     return false;
 }
 
 function Finalizar() {
     alert("Compra realizada com Sucesso!");
-    window.location.replace("Details.html");
+    window.location.replace("Details.php");
     return false;
 }
 
@@ -55,37 +55,37 @@ function Pesquisar() {
         return false;
     }
     else {
-        window.location.replace("Search.html");
+        window.location.replace("Search.php");
         return false;
     }
 }
 
-function entrarLogin() {
-    if (emailLogin.value.length < 6 || emailLogin.value.indexOf("@") <= 0 || emailLogin.value.lastIndexOf(".") <= emailLogin.value.indexOf("@")) {
-        alert("Email Invalido !");
-        emailLogin.focus();
-        emailLogin.value = "";
-        return false;
-    } else if (senhaLogin.value == "" || senhaLogin.value == " " * 12) {
-        alert("Digite a senha !");
-        senhaLogin.focus();
-        return false;
-    }
-    else {
-        alert("Usuario Logado !");
-        window.location.replace("index.html");
-        return false;
-    }
+// function entrarLogin() {
+//     if (emailLogin.value.length < 6 || emailLogin.value.indexOf("@") <= 0 || emailLogin.value.lastIndexOf(".") <= emailLogin.value.indexOf("@")) {
+//         alert("Email Invalido !");
+//         emailLogin.focus();
+//         emailLogin.value = "";
+//         return false;
+//     } else if (senhaLogin.value == "" || senhaLogin.value == " " * 12) {
+//         alert("Digite a senha !");
+//         senhaLogin.focus();
+//         return false;
+//     }
+//     else {
+//         alert("Usuario Logado !");
+//         window.location.replace("index.php");
+//         return false;
+//     }
 
-    logar.submit();
-}
+//     logar.submit();
+// }
 
 function mudarTela() {
-    window.location.assign("../Projeto-de-PW-Semestre-4/Register.html");
+    window.location.assign("../Projeto-de-PW-Semestre-4/Register.php");
 }
 
 function mudarParaLogin() {
-    window.location.assign("../Projeto-de-PW-Semestre-4/Login.html");
+    window.location.assign("../Projeto-de-PW-Semestre-4/Login.php");
 }
 
 function enviarForm() {
@@ -110,12 +110,12 @@ function enviarForm() {
         return false;
     }
 
-    if (senhaCadastro.value != senha2.value) {
-        alert("Senha e confirmação são diferentes!");
-        confirmaSenha.focus();
-        confirmaSenha.value = "";
-        return false;
-    }
+    // if (senhaCadastro.value != senha2.value) {
+    //     alert("Senha e confirmação são diferentes!");
+    //     confirmaSenha.focus();
+    //     confirmaSenha.value = "";
+    //     return false;
+    // }
 
     if (telefoneCadastro.value == "" || isNaN(telefoneCadastro.value)) {
         alert("Informe somente numeros para o telefone!");
@@ -191,7 +191,7 @@ function esqueciSenha() {
         return false;
     } else {
         alert("Um email de verificação foi enviado para o endereço: " + email.value);
-        window.location.replace("Login.html");
+        window.location.replace("Login.php");
         return false;
     }
 

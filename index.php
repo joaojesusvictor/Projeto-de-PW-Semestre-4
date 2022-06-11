@@ -1,7 +1,12 @@
 <?php
 require("./php/conexao.php");
-?>
 
+if(!isset($_SESSION)) session_start();
+    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
+        $codigo = $_SESSION['codigo'];
+        $nome = $_SESSION['nome'];
+    }  
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,7 +29,7 @@ require("./php/conexao.php");
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
 
-            <a href="index.html"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px" height="500px"></a>
+            <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px" height="500px"></a>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12" style="margin: auto; padding: 10px;">
             <form class="d-flex">
@@ -45,8 +50,13 @@ require("./php/conexao.php");
                     <ul class="dropdown-menu">
 
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="Login.html">Login</a></li>
-                        <li><a class="dropdown-item" href="Register.html">Cadastro</a></li>
+                        <!-- <li><a class="dropdown-item" href="Login.php">Login</a></li> -->
+                        <?php if(!isset($_SESSION['codigo'])){?> 
+                            <li class="nav-item"><a title="Entrar" class="nav-link js-scroll-trigger" href="Login.php"><i class="fa fa-user"></i></a></li>
+                        <?php }else{ ?>
+                            <li class="nav-item"><a title="Sair" class="nav-link js-scroll-trigger" href="Logout.php"><i class="fas fa-sign-out-alt"></i></a></li>
+                        <?php } ?>
+                        <li><a class="dropdown-item" href="Register.php">Cadastro</a></li>
 
 
                     </ul>
@@ -63,7 +73,7 @@ require("./php/conexao.php");
                         <div class="collapse navbar-collapse" id="mynavbar">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="About.html">Sobre</a>
+                                    <a class="nav-link" href="About.php">Sobre</a>
                                 </li>
 
                             </ul>
