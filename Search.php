@@ -1,7 +1,7 @@
 <?php 
     if(!isset($_SESSION)) session_start();
-    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
-        $codigo = $_SESSION['codigo'];
+    if(isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])){
+        $codigo = $_SESSION['cd_cliente'];
         $nome = $_SESSION['nome'];
     }
 ?>
@@ -48,11 +48,10 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <!-- <li><a class="dropdown-item" href="Login.php">Login</a></li> -->
-                        <?php if(!isset($_SESSION['codigo'])){?> 
-                            <li class="nav-item"><a title="Entrar" class="nav-link js-scroll-trigger" href="Login.php"><i class="fa fa-user"></i></a></li>
+                        <?php if(!isset($_SESSION['cd_cliente'])){?> 
+                            <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
                         <?php }else{ ?>
-                            <li class="nav-item"><a title="Sair" class="nav-link js-scroll-trigger" href="Logout.php"><i class="fas fa-sign-out-alt"></i></a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                         <?php } ?>
                         <li><a class="dropdown-item" href="Register.php">Cadastro</a></li>
                     </ul>

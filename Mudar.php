@@ -1,19 +1,19 @@
 <?php 
-    include_once('conn.php');
+    include_once('./php/conexao.php');
     $email = $_SESSION['email'];
     if(isset($_POST['inputSenha'])){
         
         $senha = $_POST['inputSenha'];
         
         $senha = md5($senha);
-        $sql = "UPDATE usuarios SET senha = '$senha', mudar = 0 WHERE email = '$email' ";
-        mysqli_query($conn, $sql);
-        $result_usuario = "SELECT * FROM usuarios WHERE email = '$email' && senha = '$senha' LIMIT 1";
-		$resultado_usuario = mysqli_query($conn, $result_usuario);
+        $sql = "UPDATE clientes SET senha = '$senha', mudar = 0 WHERE email = '$email' ";
+        mysqli_query($conexao, $sql);
+        $result_usuario = "SELECT * FROM clientes WHERE email = '$email' && senha = '$senha' LIMIT 1";
+		$resultado_usuario = mysqli_query($conexao, $result_usuario);
 		$resultado = mysqli_fetch_assoc($resultado_usuario);
 		$_SESSION['mudar'] = $resultado['mudar'];
         
-        $conn -> close();
+        $conexao -> close();
     }
     if($_SESSION['mudar'] == 0 || !isset($_SESSION['mudar'])):
         $_SESSION['error'] = "Senha alterada com sucesso!";
