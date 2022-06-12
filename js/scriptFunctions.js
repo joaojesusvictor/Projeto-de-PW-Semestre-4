@@ -60,26 +60,6 @@ function Pesquisar() {
     }
 }
 
-// function entrarLogin() {
-//     if (emailLogin.value.length < 6 || emailLogin.value.indexOf("@") <= 0 || emailLogin.value.lastIndexOf(".") <= emailLogin.value.indexOf("@")) {
-//         alert("Email Invalido !");
-//         emailLogin.focus();
-//         emailLogin.value = "";
-//         return false;
-//     } else if (senhaLogin.value == "" || senhaLogin.value == " " * 12) {
-//         alert("Digite a senha !");
-//         senhaLogin.focus();
-//         return false;
-//     }
-//     else {
-//         alert("Usuario Logado !");
-//         window.location.replace("index.php");
-//         return false;
-//     }
-
-//     logar.submit();
-// }
-
 function mudarTela() {
     window.location.assign("../Projeto-de-PW-Semestre-4/Register.php");
 }
@@ -98,8 +78,8 @@ function enviarForm() {
 
     if (emailCadastro.value.length < 6 || emailCadastro.value.indexOf("@") <= 0 || emailCadastro.value.lastIndexOf(".") <= emailCadastro.value.indexOf("@")) {
         alert("Email Invalido!");
-        emailCadastro.focus();
         emailCadastro.value = "";
+        emailCadastro.focus();
         return false;
     }
 
@@ -110,24 +90,24 @@ function enviarForm() {
         return false;
     }
 
-    // if (senhaCadastro.value != senha2.value) {
-    //     alert("Senha e confirmação são diferentes!");
-    //     confirmaSenha.focus();
-    //     confirmaSenha.value = "";
-    //     return false;
-    // }
+    if (senhaCadastro.value != confirmaSenha.value) {
+        alert("Senha e confirmação são diferentes!");
+        confirmaSenha.value = "";
+        confirmaSenha.focus();
+        return false;
+    }
 
     if (telefoneCadastro.value == "" || isNaN(telefoneCadastro.value)) {
         alert("Informe somente numeros para o telefone!");
-        telefoneCadastro.focus();
         telefoneCadastro.value = "";
+        telefoneCadastro.focus();
         return false;
     }
 
     if (cep.value == "") {
         alert("Informe somente numeros para o cep!");
-        cep.focus();
         cep.value = "";
+        cep.focus();
         return false;
     }
 
@@ -137,7 +117,8 @@ function enviarForm() {
         enderecoCadastro.focus();
         return false;
     }
-    formCadastro.submit();
+
+    return true;
 }
 
 function validarCpf(strCPF) {

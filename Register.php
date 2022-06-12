@@ -1,7 +1,11 @@
 <?php 
-    if(isset($_SESSION['codigo']) && isset($_SESSION['nome'])){
-        header('Location: index.php');
-    }
+    require("./php/conexao.php");
+
+    if(isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])){
+        if($_SESSION['mudar'] == 0):
+            header('Location: index.php');
+        endif;
+    }  
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +46,7 @@
                     <ul class="dropdown-menu">
 
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <!-- <li><a class="dropdown-item" href="Login.php">Login</a></li> -->
-                        <li class="nav-item"><a title="Entrar" class="nav-link js-scroll-trigger" href="Login.php"><i class="fa fa-user"></i></a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
                     </ul>
                 </div>
 
@@ -68,43 +71,43 @@
             </nav>
         </div><br />
 
-        <form id="formCadastro">
+        <form id="formCadastro" method="post" action="Register.php">
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Nome</span>
-                <input id="nomeCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input id="nomeCadastro" name="nomeCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text">Email</span>
-                <input id="emailCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input id="emailCadastro" name="emailCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
 
             <div class="input-group mb-3" >
                 <span class="input-group-text" >Senha</span>
-                <input id="senhaCadastro" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input id="senhaCadastro" name="senhaCadastro" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
 
             <div class="input-group mb-3" >
                 <span class="input-group-text" >Confirme a senha</span>
-                <input id="confirmaSenha" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input id="confirmaSenha" name="confirmaSenha" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >CPF</span>
-                <input id="cpfCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                <input id="cpfCadastro" name="cpfCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Telefone</span>
-                <input id="telefoneCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="telefoneCadastro" name="telefoneCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="input-group mb-3">
                         <span class="input-group-text" >Cep</span>
-                        <input id="cep" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input id="cep" name="cep" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
 
@@ -115,32 +118,32 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Endereço</span>
-                <input id="enderecoCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="enderecoCadastro" name="enderecoCadastro" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Número</span>
-                <input id="numeroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="numeroEnd" name="numeroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Complemento</span>
-                <input id="complementoEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="complementoEnd" name="complementoEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Bairro</span>
-                <input id="bairroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="bairroEnd" name="bairroEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Cidade</span>
-                <input id="cidadeEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="cidadeEnd" name="cidadeEnd" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" >Estado</span>
-                <input id="estado" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="estado" name="estado" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="form-group col-lg-12 col-md-12 col-sm-6">
@@ -167,16 +170,10 @@
             $cidadeEnd = $_POST['cidadeEnd'];
             $estadoEnd = $_POST['estado'];
 
-            if($senha == $confirma){
                 $senha = md5($senha);
-                include_once('conn.php');
-                $sql = "INSERT INTO usuarios (nome, email, senha, cpf, telefone, cep, endereco, numero, complemento, bairro, cidade, estado) VALUES ('$nome', '$email', '$senha', '$cpf', '$telefone', '$cep', '$endereco', '$numeroEnd', '$complementoEnd', '$bairroEnd', '$cidadeEnd', '$estadoEnd')";
-                $err = mysqli_query($conn, $sql);
-                echo "<h4>Registro inserido com sucesso</h4>";
-                $conn -> close();
-            } else {
-                $_SESSION['error'] = "As senhas não batem!";
-            }
+                $sql = "INSERT INTO clientes (cd_cliente, nome, email, senha, cpf, tel, cep, endereco, numero, complemento, bairro, cidade, estado, mudar) VALUES (Default, '$nome', '$email', '$senha', '$cpf', '$telefone', '$cep', '$endereco', $numeroEnd, '$complementoEnd', '$bairroEnd', '$cidadeEnd', '$estadoEnd', 0)";
+                $err = mysqli_query($conexao, $sql);
+                $conexao -> close();
         }
     ?>
 
