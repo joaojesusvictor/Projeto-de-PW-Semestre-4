@@ -14,10 +14,15 @@
         $_SESSION['error'] = "Enviamos sua senha por e-mail!";
         header('Location: Login.php');
     }
-    
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<body>
+
 <!-- Signup-->
-<section class="signup-section" id="signup" style="background-image: url('assets/img/dark-polygonal-background_1409-878.jpg')">
+<section class="signup-section" id="signup" style="text-align: center">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
@@ -27,7 +32,7 @@
         </div>
     </div>
 </section> 
-<section class="login-section" id="login">
+<section class="login-section" id="login" style="text-align: center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6">
@@ -75,7 +80,7 @@
             </div>
             <div class="col-xs-12 col-sm-5 offset-sm-1 flex-center">
                 <div class="">
-                    <h2 class="text-black text-center mb-3 mt-5 col-xs-12">Ainda não tenho cadastro?</h2>
+                    <h2 class="text-black text-center mb-3 mt-5 col-xs-12">Ainda não tem cadastro?</h2>
                     <a href="Register.php" class="btn btn-primary fw mt-3">
                         Clique aqui
                     </a>
@@ -83,7 +88,11 @@
             </div>
         </div>
     </div>
-</section>  
+</section> 
+
+</body>
+
+</html>
 
 <?php
 function enviarEmail($usuario, $senha) {
