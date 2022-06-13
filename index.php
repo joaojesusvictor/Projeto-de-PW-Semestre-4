@@ -28,7 +28,6 @@ if(!isset($_SESSION)) session_start();
 <body>
     <div class="container" id="containerMenu">
         <div class="p-5 text-white text-center">
-
             <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="500px" height="500px"></a>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12" style="margin: auto; padding: 10px;">
@@ -56,7 +55,6 @@ if(!isset($_SESSION)) session_start();
                             <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                         <?php } ?>
                         <li><a class="dropdown-item" href="Register.php">Cadastro</a></li>
-
 
                     </ul>
                 </div>
