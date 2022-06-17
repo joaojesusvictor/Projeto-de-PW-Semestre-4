@@ -21,7 +21,7 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `produtos` (
  `cd_produto` bigint(20) NOT NULL AUTO_INCREMENT,
- `nm_img` varchar(50) NOT NULL DEFAULT 'default.jpg',
+ `nm_img` varchar(50) NOT NULL DEFAULT 'default.png',
  `titulo` varchar(50) NOT NULL,
  `descritivo` text NOT NULL,
  `valor` decimal(7,2) NOT NULL,

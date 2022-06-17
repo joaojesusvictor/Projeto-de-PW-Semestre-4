@@ -1,9 +1,9 @@
-<?php 
-    if(!isset($_SESSION)) session_start();
-    if(isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])){
-        $codigo = $_SESSION['cd_cliente'];
-        $nome = $_SESSION['nome'];
-    }
+<?php
+if (!isset($_SESSION)) session_start();
+if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
+    $codigo = $_SESSION['cd_cliente'];
+    $nome = $_SESSION['nome'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
     <div class="models">
         <div class="models-item">
 
-                
+
             <a href="">
                 <div class="models-item--img"><img src="" /></div>
                 <div class="models-item--add">Ver Detalhes</div>
@@ -41,27 +41,27 @@
             <div class="models-item--name">--</div>
             <div class="models-item--desc">--</div>
         </div>
-        
-        <div class="cart--item" >
-            
+
+        <div class="cart--item">
+
 
             <img src="" />
             <div class="cart--item-nome">--</div>
-            
+
             <div class="cart--item--qtarea">
                 <button class="cart--item-qtmenos">-</button>
                 <div class="cart--item--qt">1</div>
                 <button class="cart--item-qtmais">+</button>
             </div>
-            
+
         </div>
-        
+
     </div>
     <header>
         <div class="menu-openner">
             <span></span>
             <span class="material-icons">shopping_cart</span>
-            
+
         </div>
     </header>
     <!-- TUDO QUE ESTÁ NA TELA ESTÁ SENDO MOSTRANDO ABAIXO NA TAG MAIN-->
@@ -72,25 +72,22 @@
 
                 <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top" style="height: 100px;">
 
-                    <div class="p-4 text-white text-center" style=" position:absolute;" >
-                        <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail"
-                                alt="Logo" width="180px" height="100px"></a>
+                    <div class="p-4 text-white text-center" style=" position:absolute;">
+                        <a href="index.php"><img src="../Projeto-de-PW-Semestre-4/img/logo2.png" class="img-thumbnail" alt="Logo" width="180px" height="100px"></a>
                     </div>
 
                     <div class="btn-group" style="margin-left: 75%; position:absolute;">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="background: local; border: none;">
-                            <img src="../Projeto-de-PW-Semestre-4/img/avatar.png" alt="dropdown image"
-                                class="img-responsive rounded-pill" style="width:55px">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: local; border: none;">
+                            <img src="../Projeto-de-PW-Semestre-4/img/avatar.png" alt="dropdown image" class="img-responsive rounded-pill" style="width:55px">
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <?php if(!isset($_SESSION['cd_cliente'])){?> 
-                            <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
-                        <?php }else{ ?>
-                            <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
-                        <?php } ?>
+                            <?php if (!isset($_SESSION['cd_cliente'])) { ?>
+                                <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
+                            <?php } else { ?>
+                                <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
+                            <?php } ?>
                             <li><a class="dropdown-item" href="Login.php">Cadastro</a></li>
                         </ul>
                     </div>
@@ -151,7 +148,7 @@
             <p style="color: white;">© 2022 Copyright: Todos os direitos reservados </p>
         </div>
     </main>
-    
+
     <aside>
         <div class="cart--area">
             <div class="menu-closer">
@@ -159,7 +156,8 @@
             </div>
             <br /><br /><br /><br /><br />
             <center>
-                <span class="material-icons">shopping_cart</span><h1>Carrinho</h1>
+                <span class="material-icons">shopping_cart</span>
+                <h1>Carrinho</h1>
             </center>
             <br>
             <div class="cart"></div>
@@ -219,7 +217,7 @@
     <script type="text/javascript" src="js/models.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
-    
+
 </body>
 
 </html>
