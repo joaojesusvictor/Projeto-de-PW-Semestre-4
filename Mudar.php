@@ -1,28 +1,28 @@
-<?php 
-    include_once('./php/conexao.php');
-    $email = $_SESSION['email'];
-    if(isset($_POST['inputSenha'])){
-        
-        $senha = $_POST['inputSenha'];
-        
-        $senha = md5($senha);
-        $sql = "UPDATE clientes SET senha = '$senha', mudar = 0 WHERE email = '$email' ";
-        mysqli_query($conexao, $sql);
-        $result_usuario = "SELECT * FROM clientes WHERE email = '$email' && senha = '$senha' LIMIT 1";
-		$resultado_usuario = mysqli_query($conexao, $result_usuario);
-		$resultado = mysqli_fetch_assoc($resultado_usuario);
-		$_SESSION['mudar'] = $resultado['mudar'];
-        
-        $conexao -> close();
-    }
-    if($_SESSION['mudar'] == 0 || !isset($_SESSION['mudar'])):
-        $_SESSION['error'] = "Senha alterada com sucesso!";
-        header('Location: index.php');
-    else:
-        
-    endif;
+<?php
+include_once('./php/conexao.php');
+$email = $_SESSION['email'];
+if (isset($_POST['inputSenha'])) {
 
-    
+    $senha = $_POST['inputSenha'];
+
+    $senha = md5($senha);
+    $sql = "UPDATE clientes SET senha = '$senha', mudar = 0 WHERE email = '$email' ";
+    mysqli_query($conexao, $sql);
+    $result_usuario = "SELECT * FROM clientes WHERE email = '$email' && senha = '$senha' LIMIT 1";
+    $resultado_usuario = mysqli_query($conexao, $result_usuario);
+    $resultado = mysqli_fetch_assoc($resultado_usuario);
+    $_SESSION['mudar'] = $resultado['mudar'];
+
+    $conexao->close();
+}
+if ($_SESSION['mudar'] == 0 || !isset($_SESSION['mudar'])) :
+    $_SESSION['error'] = "Senha alterada com sucesso!";
+    header('Location: index.php');
+else :
+
+endif;
+
+
 ?>
 <!-- Signup-->
 <section id="signup">
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
 <section class="login-section" id="login">
     <div class="container">
         <div class="row">
@@ -53,5 +53,5 @@
             </div>
         </div>
     </div>
-</section>   
-<?php?>
+</section>
+<?php mysqli_close($conexao); ?>

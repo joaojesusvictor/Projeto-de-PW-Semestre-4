@@ -194,9 +194,9 @@ async function buscarCep(valorCep) {
 
         let url = "https://viacep.com.br/ws/" + cepFormat + "/json/";
 
-        fetch(url).then((resp) => resp.json()).then(function(data) {
+        fetch(url).then((resp) => resp.json()).then(function (data) {
 
-            if(!data.erro){
+            if (!data.erro) {
 
                 document.getElementById("cep").value = data.cep;
                 document.getElementById("enderecoCadastro").value = data.logradouro;
@@ -204,8 +204,8 @@ async function buscarCep(valorCep) {
                 document.getElementById("cidadeEnd").value = data.localidade;
                 document.getElementById("estado").value = data.uf;
 
-            }else{
-                
+            } else {
+
                 alert("Cep não encontrado!");
 
                 document.getElementById("cep").value = "";
@@ -215,13 +215,13 @@ async function buscarCep(valorCep) {
                 document.getElementById("estado").value = "";
 
             }
-            
-        }).catch(function(error) { 
+
+        }).catch(function (error) {
 
             alert("Cep não encontrado!");
             console.log(error);
 
         });
-        
+
     }
 }
