@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <title>Adefinir</title>
-    <link rel="icon" type="image/x-icon" href="../img/logo2.png">
+    <title>Tech's Boys</title>
+    <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +34,10 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <?php if (!isset($_SESSION['cd_cliente'])) { ?>
                             <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
                         <?php } else { ?>
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
                             <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                         <?php } ?>
                         <li><a class="dropdown-item" href="Register.php">Cadastro</a></li>

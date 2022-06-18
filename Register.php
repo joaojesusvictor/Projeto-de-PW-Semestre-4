@@ -9,7 +9,7 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
 ?>
 
 <?php require("./php/header2.php"); ?>
-<div>
+<div class="container mt-5">
     <form id="formCadastro" method="post" action="Register.php" style="margin-bottom: 25vh;">
 
         <div class="input-group mb-3">
@@ -115,8 +115,6 @@ if (isset($_POST["enviar"])) {
     $conexao->close();
 }
 ?>
-
-
 
 <?php require("./php/footer.php"); ?>
 </body>

@@ -2,7 +2,6 @@
 include_once('./php/conexao.php');
 
 //Login
-
 if (!isset($_SESSION)) session_start();
 
 if (isset($_POST['emailLogin']) && isset($_POST['senhaLogin'])) {
