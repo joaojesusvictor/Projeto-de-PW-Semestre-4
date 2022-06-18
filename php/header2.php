@@ -3,8 +3,8 @@
 
 
 <head>
-    <title>Adefinir?</title>
-    <link rel="icon" type="image/x-icon" href="../img/logo2.png">
+    <title>Tech's Boys</title>
+    <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +31,6 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa fa-user"></i>Entrar</a></li>
                     </ul>
                 </div>

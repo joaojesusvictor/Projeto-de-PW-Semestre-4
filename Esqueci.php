@@ -1,5 +1,5 @@
 <?php
-include_once('./php/conexao.php');
+require("./php/conexao.php");
 
 if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
     header('Location: index.php');
@@ -17,22 +17,12 @@ if (isset($_POST['senhaLogin'])) {
 ?>
 <?php require("./php/header2.php"); ?>
 <!-- Signup-->
-<section class="signup-section" id="signup" style="text-align: center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-                <i class="fas fa-user fa-2x mb-2 text-white"></i>
-                <h2 class="text-white mb-5">Login</h2>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="login-section" id="login" style="text-align: center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <h2 class="text-black text-center mb-3 mt-5 col-xs-12">Para recuperar sua senha, digite seu e-mail e enviaremos uma nova por lá:</h2>
-                <form class="col-xs-12 mb-5" action="Esqueci.php" method="POST">
+                <form class="col-xs-12 mb-5" id="FormEnviar" action="Esqueci.php?enviar=1" method="POST">
                     <label for="inputEmail">E-mail:</label>
                     <input type="text" name="inputEmail" placeholder="ex: teste@teste.com" id="inputEmail" class="form-control form-control-lg" required>
 
@@ -93,22 +83,24 @@ if (isset($_POST['senhaLogin'])) {
 <?php
 function enviarEmail($usuario, $senha)
 {
-    $assunto = "Nova senha";
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers .= 'From: ProjetoPW';
-    $mensagem = "
-        <html>
-        <h2>Sua nova senha chegou</h2>
+    if (isset($_GET["enviar"])) {
+        $assunto = "Nova senha";
+        $headers  = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+        $headers .= "From: ProjetoPW";
+        $mensagem = "
+            <html>
+            <h2>Sua nova senha chegou</h2>
 
-        <p>Para acessar o site, faça login utilizando a nova senha informada abaixo!</p>
+            <p>Para acessar o site, faça login utilizando a nova senha informada abaixo!</p>
 
-        <strong>Senha</strong> = $senha
+            <strong>Senha</strong> = $senha
 
-        <p>Apos efetuar o login, informe a nova senha que deseja utilizar</p>
+            <p>Apos efetuar o login, informe a nova senha que deseja utilizar</p>
 
-        </html>";
+            </html>";
 
-    mail($usuario, $assunto, $mensagem, $headers);
+        mail($usuario, $assunto, $mensagem, $headers);
+    }
 }
 ?>
