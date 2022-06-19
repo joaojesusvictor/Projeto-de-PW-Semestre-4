@@ -1,12 +1,12 @@
 <?php
-include_once('./php/conexao.php');
+require("./php/conexao.php");
 
 //Login
 if (!isset($_SESSION)) session_start();
 
 if (isset($_POST['emailLogin']) && isset($_POST['senhaLogin'])) {
     $usuario = $_POST['emailLogin'];
-    $senha = md5($_POST['senhaLogin']);
+    $senha = $_POST['senhaLogin'];
     include_once('./php/conexao.php');
     $result_usuario = "SELECT * FROM clientes WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
     $resultado_usuario = mysqli_query($conexao, $result_usuario);
@@ -16,19 +16,13 @@ if (isset($_POST['emailLogin']) && isset($_POST['senhaLogin'])) {
         $_SESSION['cd_cliente'] = $resultado['cd_cliente'];
         $_SESSION['nome'] = $resultado['nome'];
         $_SESSION['email'] = $resultado['email'];
-        $_SESSION['mudar'] = $resultado['mudar'];
-        echo $_SESSION['email'];
     } else {
-        $_SESSION['error'] = "E-mail e/ou senha inválido(s)!";
+        echo "<script lang='javascript'>alert('E-mail e/ou senha inválido(s)!')</script>";
     }
 }
 
 if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
-    if ($_SESSION['mudar'] == 0) :
-        header('Location: index.php');
-    else :
-        header('Location: Mudar.php');
-    endif;
+         header('Location: index.php');
 }
 ?>
 <?php require("./php/header2.php"); ?>

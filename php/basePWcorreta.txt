@@ -13,7 +13,6 @@ CREATE TABLE `clientes` (
  `bairro` varchar(50) NOT NULL,
  `cidade` varchar(100) NOT NULL,
  `estado` varchar(100) NOT NULL,
- `mudar`  bit NOT NULL,
  
  PRIMARY KEY (`cd_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

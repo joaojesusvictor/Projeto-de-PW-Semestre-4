@@ -1,16 +1,10 @@
 <?php
 require("./php/conexao.php");
-
-if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
-    if ($_SESSION['mudar'] == 0) :
-        header('Location: index.php');
-    endif;
-}
 ?>
 
 <?php require("./php/header2.php"); ?>
 <div class="container mt-5">
-    <form id="formCadastro" method="post" action="Register.php" style="margin-bottom: 25vh;">
+    <form id="formCadastro" method="post" action="Register.php?enviar=1" style="margin-bottom: 25vh;">
 
         <div class="input-group mb-3">
             <span class="input-group-text">Nome</span>
@@ -109,9 +103,17 @@ if (isset($_POST["enviar"])) {
     $cidadeEnd = $_POST['cidadeEnd'];
     $estadoEnd = $_POST['estado'];
 
-    $senha = md5($senha);
-    $sql = "INSERT INTO clientes (cd_cliente, nome, email, senha, cpf, tel, cep, endereco, numero, complemento, bairro, cidade, estado, mudar) VALUES (Default, '$nome', '$email', '$senha', '$cpf', '$telefone', '$cep', '$endereco', $numeroEnd, '$complementoEnd', '$bairroEnd', '$cidadeEnd', '$estadoEnd', 0)";
-    $err = mysqli_query($conexao, $sql);
+    include_once('./php/conexao.php');
+    $result_usuario = "SELECT * FROM clientes WHERE email = '$email' LIMIT 1";
+    $resultado_usuario = mysqli_query($conexao, $result_usuario);
+    $resultado = mysqli_fetch_assoc($resultado_usuario);
+
+    if ($resultado['email'] == $email) {
+        echo "<script lang='javascript'>alert('Já existe um cadastro com esse email!')</script>";
+    }else{
+        $sql = "INSERT INTO clientes (cd_cliente, nome, email, senha, cpf, tel, cep, endereco, numero, complemento, bairro, cidade, estado) VALUES (Default, '$nome', '$email', '$senha', '$cpf', '$telefone', '$cep', '$endereco', $numeroEnd, '$complementoEnd', '$bairroEnd', '$cidadeEnd', '$estadoEnd')";
+        $err = mysqli_query($conexao, $sql);
+    }
     $conexao->close();
 }
 ?>
