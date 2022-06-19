@@ -4,6 +4,6 @@ unset(
 $_SESSION['cd_cliente'],
 $_SESSION['nome']
 );
-$_SESSION['error'] = "Até mais!";
+echo "<script lang='javascript'>alert('Até mais!')</script>";
 header('Location: index.php');
 ?>
