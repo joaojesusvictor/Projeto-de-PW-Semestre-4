@@ -154,7 +154,6 @@ require("./php/conexao.php");
     </form>
 </div>
 
-<br/><br/><br/><br/>
     <!--RODAPÉ-->
     <footer class="border-top  text-muted bg-primary">
             <div class="container">
