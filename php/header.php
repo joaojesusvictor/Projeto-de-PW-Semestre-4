@@ -17,10 +17,10 @@
             <a href="index.php"><img src="./img/logo2.png" class="img-thumbnail" alt="Logo" width="500px" height="500px"></a>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12" style="margin: auto; padding: 10px;">
-            <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Digite aqui..." id="pesquisarProduto">
+            <form class="d-flex" method="POST" action="../../Projeto-de-PW-Semestre-4/Search.php">
+                <input class="form-control me-2" type="text" placeholder="Digite aqui..." id="pesquisando" name="pesquisando">
 
-                <button class="btn btn-primary" type="button" onclick="Pesquisar()">Procurar</button>
+                <button class="btn btn-primary" name="pesquisar" >Procurar</button>
             </form>
         </div>
         <div class="navbar-dark bg-black sticky-top">
