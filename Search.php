@@ -24,16 +24,34 @@ if (isset($_POST["pesquisar"])){
     while ($_pesquisados = mysqli_fetch_assoc($resultado)) {
 
 ?>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="card">
-            <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_pesquisados['nm_img'] . ".png"; ?>" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title"> <?php echo $_pesquisados['titulo']; ?> </h4>
-                <p class="card-text"> <?php echo "R$ " . $_pesquisados['valor']; ?> </p>
-                <a href="Details.php?id_prod=<?php echo $_pesquisados['cd_produto']; ?>" class="btn btn-primary">Ver Detalhes</a>
-            </div>
-        </div>
-    </div>
+    
+	
+	<div class="col-lg-3 col-md-4 col-sm-6">
+			
+		<div class="card" style="height: 95%;">
+		
+			<div class="card-header" style="background-color: white; height: 100%;">
+				<a href="Details.php?id_prod=<?php echo $_pesquisados['cd_produto']; ?>">	
+					<img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_pesquisados['nm_img'] . ".png"; ?>" alt="Foto do produto não disponível">
+				</a>
+				<div class="card-text text-center">
+					<br>
+					<a href="Details.php?id_prod=<?php echo $_pesquisados['cd_produto']; ?>">
+						<h4 class="card-title" style="height: calc(4vw + 3vh); font-size: calc(25% + 0.5vw + 1.5vh); color:black;"> <?php echo $_pesquisados['titulo']; ?>&nbsp;</h4>
+					</a>
+				
+					<a href="Details.php?id_prod=<?php echo $_pesquisados['cd_produto']; ?>">
+						<p style="font-size: calc(40% + 1vw + 1vh); color: DodgerBlue; font-weight: bold;"> <?php echo "R$ " . $_pesquisados['valor']; ?> </p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<br/> 
+		
+	</div>
+	
+	
 <?php } ?>
 </div>
 </div>
@@ -46,7 +64,7 @@ if (isset($_POST["pesquisar"])){
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-12 text-center">
-                        <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Copyright: Todos os Direitos reservados.</h7></strong>
+                        <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Todos os direitos reservados</h7></strong>
                     </div>
                 </div>    
             </div>

@@ -79,9 +79,11 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
     </div>
     -->
     <div class="container " style="text-align: center;">
-        <strong><h1>Programação Web P2</h1></strong>
+        <strong><h1 style="text-align: center; color:DodgerBlue;">Programação Web P2</h1></strong>
+		<br/>
             <div class="card border-primary">
-        <strong><h2>Integrantes</h2></strong>
+		<br/>
+        <h3 style="text-align: center; color:DodgerBlue;"><strong>Integrantes</strong></h3>
         <br/>
                 <div class="row justify-content-md-center">
                     <div class="col-lg-4 col-md-4 col-sm-6">
@@ -147,7 +149,7 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
         <div class="container">
             <div class="row py-3">
                 <div class="col-12 col-md-12 text-center">
-                    <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Copyright: Todos os Direitos reservados.</h7></strong>
+                    <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Todos os direitos reservados</h7></strong>
                 </div>
             </div>    
         </div>
