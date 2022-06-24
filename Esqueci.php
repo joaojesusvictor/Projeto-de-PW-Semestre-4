@@ -95,8 +95,6 @@ if (isset($_POST['senhaLogin'])) {
                     <input type="text" name="inputEmail" placeholder="ex: teste@teste.com" id="inputEmail" class="form-control form-control-lg" required>
 
                     <?php
-                    error_reporting(E_ALL); 
-                    ini_set('display_errors', 'On');
 
                     if (isset($_POST['inputEmail'])) {
                         $usuario = $_POST['inputEmail'];
@@ -115,8 +113,6 @@ if (isset($_POST['senhaLogin'])) {
                         } else {
                             echo "<script lang='javascript'>alert('E-mail não cadastrado!')</script>";
                         }
-
-                        // header('Location: Login.php');
                     }
                     ?>
                     <input type="submit" value="Recuperar" class="btn btn-primary col-xs-12 fw mt-3">
