@@ -1,3 +1,10 @@
-<div class="text-center p-3" style="background-color: rgba(11, 94, 215) ">
-    <p style="color: white;">© 2022 Copyright: Todos os direitos reservados </p>
-</div>
+    <!--RODAPÉ-->
+    <footer class="border-top text-muted bg-primary">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col-12 col-md-12 text-center">
+                    <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Copyright: Todos os Direitos reservados.</h7></strong>
+                </div>
+            </div>    
+        </div>
+    </footer>

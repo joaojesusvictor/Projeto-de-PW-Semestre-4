@@ -23,15 +23,17 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
                 <div class="card">
                     <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_produtos['nm_img'] . ".png"; ?>" alt="Card image">
                     <div class="card-body">
-                        <h4 class="card-title"> <?php echo $_produtos['titulo']; ?> </h4>
+                        <h4 class="card-title"> <?php echo $_produtos['titulo']; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
                         <p class="card-text"> <?php echo "R$ " . $_produtos['valor']; ?> </p>
                         <a href="Details.php?id_prod=<?php echo $_produtos['cd_produto']; ?>" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
+                <br/> 
             </div>
         <?php } ?>
     </div>
 </div>
+<br/>
 <?php require("./php/footer.php"); ?>
 </body>
 
