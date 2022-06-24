@@ -20,7 +20,7 @@ if (isset($_POST['senhaLogin'])) {
 
 <head>
     <meta charset="utf-8" />
-    <title>Details</title>
+    <title>Esqueci a Senha</title>
     <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
@@ -67,13 +67,13 @@ if (isset($_POST['senhaLogin'])) {
                                 </button>
                             
                                 <ul class="dropdown-menu">
-                                    <!--<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>-->
                                     <?php if (!isset($_SESSION['cd_cliente'])) { ?>
                                         <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar</a></li>
+                                        <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
                                         <?php } else { ?>
+                                            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>
                                     <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                                     <?php } ?>
-                                    <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -95,8 +95,6 @@ if (isset($_POST['senhaLogin'])) {
                     <input type="text" name="inputEmail" placeholder="ex: teste@teste.com" id="inputEmail" class="form-control form-control-lg" required>
 
                     <?php
-                    error_reporting(E_ALL); 
-                    ini_set('display_errors', 'On');
 
                     if (isset($_POST['inputEmail'])) {
                         $usuario = $_POST['inputEmail'];
@@ -115,8 +113,6 @@ if (isset($_POST['senhaLogin'])) {
                         } else {
                             echo "<script lang='javascript'>alert('E-mail não cadastrado!')</script>";
                         }
-
-                        // header('Location: Login.php');
                     }
                     ?>
                     <input type="submit" value="Recuperar" class="btn btn-primary col-xs-12 fw mt-3">
