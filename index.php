@@ -17,8 +17,6 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
 
         $resultado = mysqli_query($conexao, $sql);
 
-
-        $resultado = mysqli_query($conexao, $sql);
         while ($_produtos = mysqli_fetch_assoc($resultado)) {
         ?>
             <div class="col-lg-3 col-md-4 col-sm-6">
