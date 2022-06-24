@@ -1,8 +1,20 @@
+<?php
+
+if (!isset($_SESSION)) session_start();
+if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
+    $codigo = $_SESSION['cd_cliente'];
+    $nome = $_SESSION['nome'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <title>Sobre Nós</title>
+    <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,13 +57,13 @@
                                 </button>
                             
                                 <ul class="dropdown-menu">
-                                    <!--<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>-->
                                     <?php if (!isset($_SESSION['cd_cliente'])) { ?>
                                         <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar</a></li>
+                                        <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
                                         <?php } else { ?>
+                                            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>
                                     <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                                     <?php } ?>
-                                    <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -102,7 +114,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card border-white">
                         <center><img class="card-img-top" src="../Projeto-de-PW-Semestre-4/equipe/vinicius.jpeg" alt="Card image" style="width: 140px; height: 140px; border-radius: 50%"></center>                            <div class="card-body">
-                                <h4 class="card-title">Vinicius da Silva Cajui</h4>
+                                <h4 class="card-title">Vinicius da Silva Cajuí</h4>
                             </div>
                         </div>
                         <br/> 

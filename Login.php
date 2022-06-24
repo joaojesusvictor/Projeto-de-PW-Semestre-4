@@ -30,7 +30,7 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
 
 <head>
     <meta charset="utf-8" />
-    <title>Details</title>
+    <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../Projeto-de-PW-Semestre-4/img/logo2.png">
@@ -77,13 +77,14 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
                                 </button>
                             
                                 <ul class="dropdown-menu">
-                                    <!--<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>-->
                                     <?php if (!isset($_SESSION['cd_cliente'])) { ?>
                                         <li class="nav-item"><a class="dropdown-item" href="Login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar</a></li>
+                                        <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
                                         <?php } else { ?>
+                                            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a></li>
                                     <li class="nav-item"><a class="dropdown-item" href="Logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
                                     <?php } ?>
-                                    <li><a class="dropdown-item" href="Register.php"><i class="fa-solid fa-address-card"></i> Cadastro</a></li>
+                                    
                                 </ul>
                             </div>
                         </li>
