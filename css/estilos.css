@@ -1,0 +1,47 @@
+
+.cart--item--qtarea {
+    display:inline-flex;
+    background-color:#EEE;
+    border-radius:10px;
+    height:30px;
+}
+
+.cart--item--qtarea button {
+    border:0;
+    background-color:transparent;
+    font-size:17px;
+    outline:0;
+    cursor:pointer;
+    padding:0px 10px;
+    color:#333;
+}
+
+.cart--finalizar {
+    background-color:#48d05f;
+    color:#FFF;
+    cursor:pointer;
+    text-align:center;
+    transition: all ease .2s;
+}
+
+.cart--finalizar:hover {
+    background-color:#35af4a;
+}
+
+/*TELA DETALHES - CSS*/
+#vt_total_item{
+    text-align:left;
+    width: 20%;
+    border: white;
+    color: #0b84fc;
+    font-weight: bold;
+}
+
+#vl_parcel{
+    text-align:center;
+    width: 40%;
+    border: white;
+    font-weight: bold;
+    font-size:15px;
+}
+

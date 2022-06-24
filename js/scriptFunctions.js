@@ -1,3 +1,4 @@
+
 function salvarCad() {
     alert("Cadastrado com sucesso!");
     window.location.replace("Login.php");
@@ -6,10 +7,58 @@ function salvarCad() {
 
 function Finalizar() {
     alert("Compra realizada com Sucesso!");
-    window.location.replace("Details.php");
-    return false;
+    window.location.replace("Index.php");
 }
 
+// function Pesquisar() {
+//     if (pesquisarProduto.value == "" || pesquisarProduto.value == " " * 12) {
+//         alert("Digite algo a ser pesquisado");
+//         pesquisarProduto.focus;
+//         return false;
+//     }
+//     else if (
+//         pesquisarProduto.value.indexOf("!") != -1 ||
+//         pesquisarProduto.value.indexOf("@") != -1 ||
+//         pesquisarProduto.value.indexOf("#") != -1 ||
+//         pesquisarProduto.value.indexOf("$") != -1 ||
+//         pesquisarProduto.value.indexOf("%") != -1 ||
+//         pesquisarProduto.value.indexOf("¨") != -1 ||
+//         pesquisarProduto.value.indexOf("&") != -1 ||
+//         pesquisarProduto.value.indexOf("*") != -1 ||
+//         pesquisarProduto.value.indexOf("(") != -1 ||
+//         pesquisarProduto.value.indexOf(")") != -1 ||
+//         pesquisarProduto.value.indexOf("_") != -1 ||
+//         pesquisarProduto.value.indexOf("+") != -1 ||
+//         pesquisarProduto.value.indexOf("'") != -1 ||
+//         pesquisarProduto.value.indexOf("-") != -1 ||
+//         pesquisarProduto.value.indexOf("=") != -1 ||
+//         pesquisarProduto.value.indexOf("`") != -1 ||
+//         pesquisarProduto.value.indexOf("[") != -1 ||
+//         pesquisarProduto.value.indexOf("{") != -1 ||
+//         pesquisarProduto.value.indexOf("}") != -1 ||
+//         pesquisarProduto.value.indexOf("]") != -1 ||
+//         pesquisarProduto.value.indexOf("~") != -1 ||
+//         pesquisarProduto.value.indexOf("^") != -1 ||
+//         pesquisarProduto.value.indexOf(":") != -1 ||
+//         pesquisarProduto.value.indexOf(";") != -1 ||
+//         pesquisarProduto.value.indexOf(".") != -1 ||
+//         pesquisarProduto.value.indexOf("{") != -1 ||
+//         pesquisarProduto.value.indexOf(",") != -1 ||
+//         pesquisarProduto.value.indexOf("/") != -1 ||
+//         pesquisarProduto.value.indexOf("|") != -1 ||
+//         pesquisarProduto.value.indexOf("}") != -1 ||
+//         pesquisarProduto.value.indexOf("?") != -1
+//     ) {
+//         alert("Digite apenas letras e numeros");
+//         pesquisarProduto.value = "";
+//         pesquisarProduto.focus();
+//         return false;
+//     }
+//     else {
+//         window.location.replace("Search.php");
+//         return false;
+//     }
+// }
 
 function mudarTela() {
     window.location.assign("../Projeto-de-PW-Semestre-4/Register.php");
@@ -175,4 +224,5 @@ async function buscarCep(valorCep) {
         });
 
     }
+
 }
