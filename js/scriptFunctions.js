@@ -10,56 +10,6 @@ function Finalizar() {
     window.location.replace("Index.php");
 }
 
-// function Pesquisar() {
-//     if (pesquisarProduto.value == "" || pesquisarProduto.value == " " * 12) {
-//         alert("Digite algo a ser pesquisado");
-//         pesquisarProduto.focus;
-//         return false;
-//     }
-//     else if (
-//         pesquisarProduto.value.indexOf("!") != -1 ||
-//         pesquisarProduto.value.indexOf("@") != -1 ||
-//         pesquisarProduto.value.indexOf("#") != -1 ||
-//         pesquisarProduto.value.indexOf("$") != -1 ||
-//         pesquisarProduto.value.indexOf("%") != -1 ||
-//         pesquisarProduto.value.indexOf("¨") != -1 ||
-//         pesquisarProduto.value.indexOf("&") != -1 ||
-//         pesquisarProduto.value.indexOf("*") != -1 ||
-//         pesquisarProduto.value.indexOf("(") != -1 ||
-//         pesquisarProduto.value.indexOf(")") != -1 ||
-//         pesquisarProduto.value.indexOf("_") != -1 ||
-//         pesquisarProduto.value.indexOf("+") != -1 ||
-//         pesquisarProduto.value.indexOf("'") != -1 ||
-//         pesquisarProduto.value.indexOf("-") != -1 ||
-//         pesquisarProduto.value.indexOf("=") != -1 ||
-//         pesquisarProduto.value.indexOf("`") != -1 ||
-//         pesquisarProduto.value.indexOf("[") != -1 ||
-//         pesquisarProduto.value.indexOf("{") != -1 ||
-//         pesquisarProduto.value.indexOf("}") != -1 ||
-//         pesquisarProduto.value.indexOf("]") != -1 ||
-//         pesquisarProduto.value.indexOf("~") != -1 ||
-//         pesquisarProduto.value.indexOf("^") != -1 ||
-//         pesquisarProduto.value.indexOf(":") != -1 ||
-//         pesquisarProduto.value.indexOf(";") != -1 ||
-//         pesquisarProduto.value.indexOf(".") != -1 ||
-//         pesquisarProduto.value.indexOf("{") != -1 ||
-//         pesquisarProduto.value.indexOf(",") != -1 ||
-//         pesquisarProduto.value.indexOf("/") != -1 ||
-//         pesquisarProduto.value.indexOf("|") != -1 ||
-//         pesquisarProduto.value.indexOf("}") != -1 ||
-//         pesquisarProduto.value.indexOf("?") != -1
-//     ) {
-//         alert("Digite apenas letras e numeros");
-//         pesquisarProduto.value = "";
-//         pesquisarProduto.focus();
-//         return false;
-//     }
-//     else {
-//         window.location.replace("Search.php");
-//         return false;
-//     }
-// }
-
 function mudarTela() {
     window.location.assign("../Projeto-de-PW-Semestre-4/Register.php");
 }
@@ -76,49 +26,54 @@ function enviarForm() {
         return false;
     }
 
-    if (emailCadastro.value.length < 6 || emailCadastro.value.indexOf("@") <= 0 || emailCadastro.value.lastIndexOf(".") <= emailCadastro.value.indexOf("@")) {
+    else if (emailCadastro.value.length < 6 || emailCadastro.value.indexOf("@") <= 0 || emailCadastro.value.lastIndexOf(".") <= emailCadastro.value.indexOf("@")) {
         alert("Email Invalido!");
         emailCadastro.value = "";
         emailCadastro.focus();
         return false;
     }
 
-    if (senhaCadastro.value.length < 6 || !isNaN(senhaCadastro.value)) {
+    else if (senhaCadastro.value.length < 6 || !isNaN(senhaCadastro.value)) {
         alert("Digite uma senha alfanumerica de 6 posições");
         senhaCadastro.value = "";
         senhaCadastro.focus();
         return false;
     }
 
-    if (senhaCadastro.value != confirmaSenha.value) {
+    else if (senhaCadastro.value != confirmaSenha.value) {
         alert("Senha e confirmação são diferentes!");
         confirmaSenha.value = "";
         confirmaSenha.focus();
         return false;
     }
 
-    if (telefoneCadastro.value == "" || isNaN(telefoneCadastro.value)) {
-        alert("Informe somente numeros para o telefone!");
-        telefoneCadastro.value = "";
-        telefoneCadastro.focus();
-        return false;
+    else if (telefoneCadastro.value == "") {
+        var tel = telefoneCadastro.value.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "");
+
+        if(isNaN(tel)){
+            alert("Informe somente numeros para o telefone!");
+            telefoneCadastro.value = "";
+            telefoneCadastro.focus();
+            return false;
+        }
     }
 
-    if (cep.value == "") {
+    else if (cep.value == "") {
         alert("Informe somente numeros para o cep!");
         cep.value = "";
         cep.focus();
         return false;
     }
 
-    if (enderecoCadastro.value.length <= 5) {
+    else if (enderecoCadastro.value.length <= 5) {
         alert("Digite o endereço!");
         enderecoCadastro.value = "";
         enderecoCadastro.focus();
         return false;
     }
-
+    else{
     return true;
+}
 }
 
 function validarCpf(strCPF) {
@@ -162,21 +117,6 @@ function validarCpf(strCPF) {
             }
         }
     }
-}
-
-function esqueciSenha() {
-    if (email.value.length < 6 || email.value.indexOf("@") <= 0 || email.value.lastIndexOf(".") <= email.value.indexOf("@")) {
-        alert("Email Invalido !!!");
-        email.focus();
-        email.value = "";
-        return false;
-    } else {
-        alert("Um email de verificação foi enviado para o endereço: " + email.value);
-        window.location.replace("Login.php");
-        return false;
-    }
-
-    modalLogin.submit();
 }
 
 async function buscarCep(valorCep) {

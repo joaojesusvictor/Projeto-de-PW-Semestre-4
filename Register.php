@@ -108,7 +108,7 @@ require("./php/conexao.php");
 
         <div class="input-group mb-3">
             <span class="input-group-text">Telefone</span>
-            <input id="telefoneCadastro" name="telefoneCadastro" type="text" class="form-control" aria-label="Telefone" aria-describedby="inputGroup-sizing-default">
+            <input id="telefoneCadastro" name="telefoneCadastro" type="tel" class="form-control" aria-label="Telefone" aria-describedby="inputGroup-sizing-default">
         </div>
 		
 		<br><br>
