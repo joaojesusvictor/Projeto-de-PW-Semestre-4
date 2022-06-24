@@ -11,7 +11,7 @@
 ; http://php.net/sendmail-from
 SMTP=smtp-mail.outlook.com
 smtp_port=587
-sendmail_from = joao_sp_2011@hotmail.com
+sendmail_from = EMAIL QUE SERÁ USADO PARA ENVIAR
 
 ; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
 ; http://php.net/sendmail-path
@@ -74,7 +74,7 @@ debug_logfile=debug.log
 
 ; if your smtp server requires authentication, modify the following two lines
 
-auth_username=joao_sp_2011@hotmail.com
+auth_username= EMAIL QUE SERÁ USADO PARA ENVIAR
 auth_password= SENHA DO EMAIL
 
 ; if your smtp server uses pop3 before smtp authentication, modify the 
@@ -88,7 +88,7 @@ pop3_password=
 ; this will only affect the "MAIL FROM" command, it won't modify 
 ; the "From: " header of the message content
 
-force_sender=joao_sp_2011@hotmail.com
+force_sender= EMAIL QUE SERÁ USADO PARA ENVIAR
 
 ; force the sender to always be the following email address
 ; this will only affect the "RCTP TO" command, it won't modify 
