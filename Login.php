@@ -104,13 +104,13 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
             <div class="mb-3 row justify-content-md-center">
                 <center><label for="emailLogin" class="col-form-label"><strong style="color:#0b84fc;">Email</strong></label></center>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="emailLogin" name="emailLogin" placeholder="Entre com Email..." required />
+                    <input type="text" class="form-control" id="emailLogin" name="emailLogin" placeholder="Digite aqui o seu email..." required />
                 </div>
             </div>
             <div class="mb-3 row justify-content-md-center">
             <center><label for="senhaLogin" class="-form-label"><strong style="color:#0b84fc;">Senha</strong></label></center>
                 <div class="col-sm-10">
-                    <input type="password" placeholder="Digite sua Senha..." class="form-control" id="senhaLogin" name="senhaLogin" required />
+                    <input type="password" placeholder="Digite aqui a sua senha..." class="form-control" id="senhaLogin" name="senhaLogin" required />
                 </div>
             </div>
 
@@ -124,8 +124,8 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
 
     <div class="col-lg-6 col-md-8 col-sm-12" style="margin-top: 30px;">
         <br/><br/><br/><br/>
-        <h3 style="text-align: center; color:#0b84fc;"><strong>Ainda não tenho cadastro!</strong></h3><br />
-        <button type="button" class="btn btn-primary" style="margin-left: 40%;" onclick="mudarTela()">Clique Aqui</button><br />
+        <h3 style="text-align: center; color:DodgerBlue;"><strong>Ainda não tenho cadastro!</strong></h3><br />
+        <button type="button" class="btn btn-primary" style="margin-left: 40%;" onclick="mudarTela()">Cadastrar</button><br />
         <br /><br />
     </div>
     </div>
@@ -136,7 +136,7 @@ if (isset($_SESSION['cd_cliente']) && isset($_SESSION['nome'])) {
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-12 text-center">
-                        <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Copyright: Todos os Direitos reservados.</h7></strong>
+                        <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Todos os direitos reservados</h7></strong>
                     </div>
                 </div>    
             </div>

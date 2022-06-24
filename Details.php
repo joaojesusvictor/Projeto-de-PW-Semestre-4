@@ -94,32 +94,26 @@ $resultado = mysqli_query($conexao, $sql);
 <main>
     <div class="models-area justify-content-center align-items-center"></div>
         <div class="container mt-4">
-            <div class="card border border border-secondary rounded">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-12" style="padding-bottom: 10px;">
-                        <div class="card border border border-white">
-                            <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_produtos['nm_img'] . ".png"; ?>" alt="Card image">
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12" style="padding-bottom: 10px;">
-                        <div class="card border border border-white">
-                            <!--<img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example2.png" alt="Card image"> -->
-                            <div class="card-body">
-                            <strong><h4 class="card-title"> <?php echo $_produtos['titulo']; ?>  &nbsp;</h4></strong>
-                                <h6 class="card-title"><b>Descrição do Produto</b></h6>
-                                <p class="card-text"> <?php echo $_produtos['descritivo']; ?> </p>
-                                <h3><b><a href=" " class="text-decoration-none"><?php echo "Valor: R$ " . $_produtos['valor']; ?></a></b></h3>
-                                <!-- Botão para acionar modal -->
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo" onclick="parcela();">
-                                        <i class="fa-solid fa-plus"></i> Adicionar ao carrinho
-                                    </button>
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<div class="row">
+				<div class="col-lg-5 col-md-5 col-sm-12" style="padding-bottom: 10px;">
+					<img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_produtos['nm_img'] . ".png"; ?>" alt="Card image">
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-12" style="padding-bottom: 10px;">
+					<!--<img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/example2.png" alt="Card image"> -->
+					<div class="card-body">
+					<strong><h4 class="card-title"> <?php echo $_produtos['titulo']; ?>  &nbsp;</h4></strong>
+						<p class="card-text" style="font-size: 0.9rem"> <?php echo $_produtos['descritivo']; ?> </p>
+						<h3><b style="color: DodgerBlue;"><?php echo "R$ " . $_produtos['valor']; ?></b></h3>
+						<br>
+						<!-- Botão para acionar modal -->
+						<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo" onclick="parcela();">
+								<i class="fa-solid fa-plus"></i> Adicionar ao carrinho
+							</button>
+					   </div>
+					</div>
+				</div>
+			</div>
         </div>
     </div>
     <br/>
@@ -130,11 +124,11 @@ $resultado = mysqli_query($conexao, $sql);
     <br/> <br/>
     <br/>
     <!--RODAPÉ-->
-    <footer class="border-top fixed-bottom text-muted bg-primary">
+    <footer class="border-top text-muted bg-primary">
         <div class="container">
             <div class="row py-3">
                 <div class="col-12 col-md-12 text-center">
-                    <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Copyright: Todos os Direitos reservados.</h7></strong>
+                    <strong><h7 style="color: white;">&copy 2022 Shopping Tecnologia - Todos os direitos reservados</h7></strong>
                 </div>
             </div>    
         </div>
@@ -153,52 +147,53 @@ $resultado = mysqli_query($conexao, $sql);
                 </button>
             </div>
             <div class="modal-body">
-            <!-- <h4>Compras:</h4>
-            <hr size='5'>--> 
-            <ul class="list-group mb-3">
-                 <li class="list-group-item py-3">
-                    <div class="row g-3">
-                        <div class="col-4 col-md-3 col-lg-2">
-                             <a href="#">
-                             <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_produtos['nm_img'] . ".png"; ?>" alt="Card image"> 
-                            </a>
-                        </div>
-                        <div class="col-8 col-md-9 col-lg-7 col-xl-7 text-left align-self-center">
-                            <h5><b><a href="#" class="text-decoration-none">
-                                <?php echo $_produtos['titulo']; ?> </a></b></h5>
+				<!-- <h4>Compras:</h4>
+				<hr size='5'>--> 
+				<ul class="list-group mb-3">
+					 <li class="list-group-item py-3">
+						<div class="row g-3">
+							<div class="col-4 col-md-3 col-lg-2">
+								 <a href="#">
+								 <img class="card-img-top" src="../Projeto-de-PW-Semestre-4/img/<?php echo $_produtos['nm_img'] . ".png"; ?>" alt="Card image"> 
+								</a>
+							</div>
+							<div class="col-8 col-md-9 col-lg-7 col-xl-7 text-left align-self-center">
+								<h5><b><a href="#" class="text-decoration-none">
+									<?php echo $_produtos['titulo']; ?> </a></b></h5>
 
-                        </div>
-                        <div class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-med-8 col-lg-3
-                            offset-lg-0 col-xl-3 align-self-center mt-3">
-                            <div class="input-group">
-                                <button id="qtd_menos" type="button" class="btn btn-outline-dark btn-sm" onclick="Menos();">  
-                                    <i class="fa-solid fa-caret-down"></i>        
-                                </button>
-                                <input id="qtd_dado" readonly="readonly" type="text" class="form-control text-center border-dark" value="1">
-                                <button id="qtd_mais" type="button" class="btn btn-outline-dark btn-sm" onclick="Mais();">  
-                                    <i class="fa-solid fa-caret-up"></i>        
-                                </button>
-                                <button type="button" class="btn btn-outline-danger border-dark btn-sm" onclick="limpar();">  
-                                    <i class="fa-solid fa-trash"></i>        
-                                </button>
-                            </div>
-                            <div class="text-right mt-1">
-                                <input type="hidden" id="valor_unit" value="<?php echo $_produtos['valor']; ?>" />
-                                <h6 style="color:#0b84fc;"><b>Unidade: R$<?php echo $_produtos['valor']; ?></b></h6>
-                                <input type="hidden" id="parcela" value="10"/>
-                                <span class="text-dark">Ou em até <b>10x</b> de <br/> <b>R$</b> <input readonly="readonly" id="vl_parcel" value=""/></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="text-center">
-            <h3 style="color:#0b84fc;"><b>Total: R$ <input readonly="readonly" id="vt_total_item" value="<?php echo $_produtos['valor']; ?>"/></b></h3>
-        </div> 
-            <div class="modal-footer justify-content-center">
-                <a href="Index.php" class="btn btn-success btn-lg" onclick="Finalizar();">Comprar</a>
-            </div>
+							</div>
+							<div class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-med-8 col-lg-3
+								offset-lg-0 col-xl-3 align-self-center mt-3">
+								<div class="input-group">
+									<button id="qtd_menos" type="button" class="btn btn-outline-dark btn-sm" onclick="Menos();">  
+										<i class="fa-solid fa-caret-down"></i>        
+									</button>
+									<input id="qtd_dado" readonly="readonly" type="text" class="form-control text-center border-dark" value="1">
+									<button id="qtd_mais" type="button" class="btn btn-outline-dark btn-sm" onclick="Mais();">  
+										<i class="fa-solid fa-caret-up"></i>        
+									</button>
+									<button type="button" class="btn btn-outline-danger border-dark btn-sm" onclick="limpar();">  
+										<i class="fa-solid fa-trash"></i>        
+									</button>
+								</div>
+								<div class="text-right mt-1">
+									<br>
+									<input type="hidden" id="valor_unit" value="<?php echo $_produtos['valor']; ?>" />
+									<h6 style="color: DodgerBlue;"><b>Unidade: R$<?php echo $_produtos['valor']; ?></b></h6>
+									<input type="hidden" id="parcela" value="10"/>
+									<span class="text-dark">Ou em até <b>10x</b> de <br/> <b>R$</b> <input readonly="readonly" id="vl_parcel" value=""/></span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="text-center">
+				<h3 style="color: DodgerBlue;"><b>Total: R$ <input readonly="readonly" id="vt_total_item" value="<?php echo $_produtos['valor']; ?>"/></b></h3>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<a href="Index.php" class="btn btn-success btn-lg" onclick="Finalizar();">Comprar</a>
+			</div>
         </div>
      </div>
      <?php } ?>

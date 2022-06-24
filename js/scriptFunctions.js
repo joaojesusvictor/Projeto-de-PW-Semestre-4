@@ -6,7 +6,7 @@ function salvarCad() {
 }
 
 function Finalizar() {
-    alert("Compra realizada com Sucesso!");
+    alert("Compra realizada com sucesso!");
     window.location.replace("Index.php");
 }
 
